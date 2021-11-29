@@ -1,0 +1,6 @@
+<!ELEMENT bideoak (bideoa)*>
+<!ELEMENT bideoa (titulua, azalpena, linka)>
+<!ATTLIST bideoa id ID #REQUIRED>
+<!ELEMENT titulua (#PCDATA)>
+<!ELEMENT azalpena (#PCDATA)>
+<!ELEMENT linka (#PCDATA)>
