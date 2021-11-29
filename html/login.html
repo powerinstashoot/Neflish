@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Neflish</title>
+	<meta charset="ISO-8859-1">
+	<link rel="stylesheet" type="text/css" href="../css/styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+	<link rel="icon" href="../img/NeflishLogo3.png">
+	<script type="text/javascript" src="../js/login_register.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		
+		<button id="login_botoia" onclick=login_erakutsi()>Login</button>
+		<button id="register_botoia" onclick=register_erakutsi()>Register</button>
+
+		<div id="register" style="display: none">
+		
+			<form method="post" action="">
+			
+				<label>Izen Abizenak:</label><input type="text" name="izen_abizen" onblur="izenaEgiaztatu()" pattern="/^[A-Z]([a-z]+){2,}(\ ([A-Z][a-z]+){1,})+$"><br>
+				<label>Erabiltzailea:</label><input type="text" name="erabiltzailea"><br>
+				<label>Email:</label><input type="email" name="email" pattern=""><br>
+				<label>Pasahitza:</label><input type="password" name="pasahitza"><br>
+				<label>Errepikatu pasahitza:</label><input type="password" name="errPasahitza"><br>
+				<input type="submit" name="erregistratu" value="Erregistratu">
+			</form>
+		</div>
+
+		<div id="login" style="display: block">
+			
+			<form method="post" action="">
+				
+				<label>Erabiltzailea:</label><input type="text" name="erabiltzailea"><br>
+				<label>Pasahitza:</label><input type="password" name="pasahitza"><br>
+				<input type="submit" name="logeatu" value="Logeatu">
+			</form>
+		</div>
+
+
+	</div>
+	
+
+</body>
+</html>
