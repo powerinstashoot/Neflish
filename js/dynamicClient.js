@@ -39,3 +39,20 @@ function stickyNavbar() {
     navbar.classList.remove("sticky");
   }
 }
+
+function balidatu(f) {
+  var titulua = document.getElementById("titulua");
+  var linka = document.getElementById("linka");
+  var azalpena = document.getElementById("azalpena");
+  var kategoria = document.getElementById("kategoria");
+  if (titulua.value=="") {
+    alert("Titulua adieraztea derrigorrezkoa da.");
+    return false;
+  }
+  if (linka.value=="") {
+    alert("Linka adieraztea derrigorrezkoa da.");
+    return false;
+  }
+  return true;
+
+}

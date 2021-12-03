@@ -26,80 +26,34 @@
 		</nav>
 
 		<div class="content">
-			<div>
-				<form action= bideoa_gorde.php method=POST>
-                    Titulua: <input type="text" name="titulua">
-					Azalpena: <textarea rows="15" cols="70" name="azalpena"></textarea>
+			
+			<form action="../php/bideoa_gorde.php" method="POST">
+				<div class="inputgroup">
+					<label for="titulua">Titulua:</label>
+					<input type="text" id="titulua" name="titulua">
+				</div>
+				<div class="inputgroup">
+					<label for="linka">Linka:</label>
+					<input type="url" id="linka" name="linka">
+				</div>
+				<div class="inputgroup">
+					<label for="azalpena">Azalpena:</label>
+					<textarea rows="15" cols="70" id="azalpena" name="azalpena"></textarea>
+				</div>
+				<div class="inputgroup">
 					<label for="kategoria">Kategoria:</label>
-						<select name="kategoria">
-						  <option value="teknologia">Teknologia</option>
-						  <option value="bidaiak">Bidaiak</option>
-						  <option value="janaria">Janaria</option>
-						  <option value="futbola">Futbola</option>
-						</select>
+					<select id="kategoria" name="kategoria">
+						<option value="teknologia">Teknologia</option>
+						<option value="bidaiak">Bidaiak</option>
+						<option value="janaria">Janaria</option>
+						<option value="futbola">Futbola</option>
+					</select>
+				</div>
+				<div class="inputgroup">
 					<input type="submit" onclick="return balidatu(this.form);">
-                </form>
-			</div>
-
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-			<p>pelikula</p>
-
+				</div> 
+			</form>
+			
 		</div>
 
 	</body>
