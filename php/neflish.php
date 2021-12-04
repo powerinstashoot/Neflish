@@ -28,10 +28,10 @@ $BL_FILE='../data/neflish_bideoak.xml';
 				<li><a href="#">Zure gustoko pelikulak</a></li>
 				<li onclick="onClickMenu()" class="dropbtn">Kategoriak <i class="fa fa-arrow-down"></i></li>
 				<div id="myDropdown" class="dropdown-content">
-					<a href="#home">Teknologia</a>
-					<a href="#about">Bidaiak</a>
-					<a href="#contact">Janaria</a>
-					<a href="#contact">Futbola</a>
+					<a href="#home" onclick="kategoria(teknologia)">Teknologia</a>
+					<a href="#about" onclick="kategoria(bidaia)">Bidaiak</a>
+					<a href="#contact" onclick="kategoria(janaria)">Janaria</a>
+					<a href="#contact" onclick="kategoria(futbola)">Futbola</a>
 				</div>
 				<li>Bideo hoberenak</li>
 				<li><a href="logout.php">Logout</a></li>
