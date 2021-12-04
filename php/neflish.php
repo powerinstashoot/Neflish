@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<?php session_start();
-$BL_FILE='../data/neflish_bideoak.xml';
-?>
+<?php include 'segurtasunaErab.php'?>
 
 <html>
 	<head>
@@ -41,7 +39,7 @@ $BL_FILE='../data/neflish_bideoak.xml';
 
 		<div class="content" id="bideoak">
 				<?php
-
+					$BL_FILE='../data/neflish_bideoak.xml';
 					if(!file_exists($BL_FILE)) {
 						echo('<p>Ez dago bideorik eskuragarri</p>');
 					} elseif(!($bl=simplexml_load_file($BL_FILE))) {
