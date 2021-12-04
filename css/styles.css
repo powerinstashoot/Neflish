@@ -15,6 +15,9 @@ h3{
 }
 .divBideoa{
   text-align: center;
+  width: 430px;
+  float: left;
+  margin-left: 10px;
 }
 .divBideoa:first-child{
   margin-top: 25px;
@@ -38,7 +41,7 @@ nav{
 
 nav ul{
 	display: flex;
-	
+
 }
 nav li{
 	font-family: 'Bai Jamjuree', sans-serif;
@@ -48,7 +51,7 @@ nav li{
 nav li:not(:first-child){
   padding:10px;
   margin: 0 10px;
-  
+
 }
 nav li:hover{
 	background-color: #ffffff33;

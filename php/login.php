@@ -15,13 +15,13 @@
 					if(hash_equals($row->pasahitza, crypt($pasahitza, $row->pasahitza))){
 						session_start();
 						$_SESSION['email'] = $erabemail;
-						echo ("<script> alert('Saioa hasi duzu! Ongi etorri'); window.location='../html/neflish.html'</script>");
+						echo ("<script> alert('Saioa hasi duzu! Ongi etorri'); window.location='neflish.php'</script>");
 					}else{
 						echo("<script> document.getElementById('ErabErr').style.display='block';
 							document.getElementById('ErabErr').innerHTML='Pasahitza ez da zuzena'; </script>");
 					}
 				}else{
-					echo("<script> document.getElementById('ErabErr').style.display='block'; 
+					echo("<script> document.getElementById('ErabErr').style.display='block';
 							document.getElementById('ErabErr').innerHTML='Erabiltzailea ez da existitzen'; </script>");
 				}
 			}
