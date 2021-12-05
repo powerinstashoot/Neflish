@@ -49,7 +49,7 @@ function gorde_bideoa($titulua, $linka, $azalpena, $kategoria){
 	$berria=$bl->addChild('bideoa');	// Sortu 'bideoa' etiketa.
 	$berria['id']=$id;
 	$berria->addChild('titulua',$titulua);	// Sortu 'bideoa' etiketaren barruko etiketak.
-	$berria->addChild('linka',$linka);
+	$berria->addChild('linka', htmlspecialchars($linka));
 	if ($azalpena!='') {
 		$berria->addChild('azalpena',$azalpena);
 	}

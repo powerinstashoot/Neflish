@@ -15,16 +15,24 @@
 	</head>
 	<body>
 		<?php include 'menu.php' ?>
-		<h2>Orri nagusia</h2>
+		<h2>Gustoko bideoak</h2>
 		<div class="content" id="bideoak">
 				<?php
 					$BL_FILE='../data/neflish_bideoak.xml';
 					if(!file_exists($BL_FILE)) {
-						echo('<p>Ez dago bideorik eskuragarri</p>');
+						echo('<p>Ez dago bideorik eskuragarri.</p>');
 					} elseif(!($bl=simplexml_load_file($BL_FILE))) {
 						echo('<p>Errore bat gertatu da bideoak kargatzean</p>');
 					} else {
 		                foreach($bl->bideoa as $bideoa) {
+                            $aurkitua=false;
+                            foreach($bideoa->likes->erabiltzailea as $erab){
+                                if($_SESSION['email']==$erab){
+                                        $aurkitua=true;
+                                        break;
+                                }
+                            }
+                            if($aurkitua==true){
 		                    ?>
 		                    <div class="divBideoa" id="<?php echo($bideoa['id']);?>">
 		                        <h2><?php echo $bideoa->titulua;?></h2>
@@ -35,24 +43,6 @@
 		                        }
 		                        ?>
 		                        <iframe width="430" height="315" src="<?php echo $bideoa->linka; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		                        <?php
-									$aurkitua=false;
-									foreach($bideoa->likes->erabiltzailea as $erab){
-										if($_SESSION['email']==$erab){
-												$aurkitua=true;
-												break;
-										}else{
-											$aurkitua=false;
-										}
-									}
-									if($aurkitua==false){
-										?>
-										<span>
-		                            		<i onclick="likeEman(this)" class="fa fa-heart-o" aria-hidden="true"></i>
-		                        		</span>
-										<?php
-									}else{
-										?>
 										<span>
 		                            		<i onclick="likeEman(this)" style="color:red" class="fa fa-heart" aria-hidden="true"></i>
 		                        		</span>
@@ -61,8 +51,8 @@
 								?>
 		                    </div>
 		            <?php
+                            }
 		                }
-		            }
 		            ?>
 		</div>
 

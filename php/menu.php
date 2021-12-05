@@ -11,7 +11,7 @@
           </div>
         </li>-->
         <a href="neflish.php">Hasiera</a>
-        <a href="#">Zure gustoko pelikulak</a>
+        <a href="bideoGustokoak.php">Zure gustoko pelikulak</a>
         <div class="dropdown">
           <a href="#" onclick="onClickMenu()" class="dropbtn">Kategoriak <i class="fa fa-sort-down"></i></a>
           <div id="myDropdown" class="dropdown-content">
@@ -21,7 +21,7 @@
             <a href="#" onclick="kategoria('futbola','<?php echo($_SESSION['email']);?>')">Futbola</a>
           </div>
         </div>
-        <a href="#">Bideo hoberenak</a>
+        <a href="bideoHoberenak.php">Bideo hoberenak</a>
         <?php
           if($_SESSION['email'] == 'admin@gmail.com'){
             echo '<a href="bideoa_gorde.php">Bideoak gehitu</a>';
