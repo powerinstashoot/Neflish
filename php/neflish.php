@@ -8,6 +8,8 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 		<script type="text/javascript" src="../js/dynamicClient.js"></script>
 		<script src="../js/kategoriakIkusi.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+		<script src="../js/likeEman.js" type="text/javascript" charset="utf-8"></script>
 		<link rel="icon" href="../img/NeflishLogo3.png">
 		<title>Neflish</title>
 	</head>
@@ -24,7 +26,7 @@
 					} else {
 		                foreach($bl->bideoa as $bideoa) {
 		                    ?>
-		                    <div class="divBideoa">
+		                    <div class="divBideoa" id="<?php echo($bideoa['id']);?>">
 		                        <h2><?php echo $bideoa->titulua;?></h2>
 		                        <h3><?php echo $bideoa->kategoria;?></h3>
 		                        <?php
@@ -45,13 +47,13 @@
 									if($aurkitua==false){
 										?>
 										<span>
-		                            		<i class="fa fa-heart-o" aria-hidden="true"></i>
+		                            		<i onclick="likeEman(this)" class="fa fa-heart-o" aria-hidden="true"></i>
 		                        		</span>
 										<?php
 									}else{
 										?>
 										<span>
-		                            		<i style="color:red" class="fa fa-heart" aria-hidden="true"></i>
+		                            		<i onclick="likeEman(this)" style="color:red" class="fa fa-heart" aria-hidden="true"></i>
 		                        		</span>
 										<?php
 									}

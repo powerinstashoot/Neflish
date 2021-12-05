@@ -10,6 +10,12 @@ function kategoria(izena,emaila) {
   xhttp.send();
 }
 
+/**
+ * 
+ * @param {*} xml 
+ * @param {*} kategoria 
+ * @param {*} emaila 
+ */
 function bideoakIkusi(xml,kategoria,emaila) {
 
   let xmlDoc = xml.responseXML;
@@ -23,6 +29,7 @@ function bideoakIkusi(xml,kategoria,emaila) {
 
       let divBideoa = document.createElement("div");
       divBideoa.className = "divBideoa";
+      divBideoa.setAttribute('id', bideoak[i]['id']);
 
       let titulua = document.createElement("h2");
       titulua.textContent = bideoak[i].getElementsByTagName('titulua')[0].childNodes[0].nodeValue;
@@ -33,7 +40,6 @@ function bideoakIkusi(xml,kategoria,emaila) {
       divBideoa.appendChild(kategoria);
 
       if(bideoak[i].getElementsByTagName('azalpena')[0].childNodes[0].nodeValue != ""){
-
         let azalpena = document.createElement("p");
         azalpena.textContent = bideoak[i].getElementsByTagName('azalpena')[0].childNodes[0].nodeValue;
         divBideoa.appendChild(azalpena);
@@ -45,9 +51,8 @@ function bideoakIkusi(xml,kategoria,emaila) {
       bideoa.src = bideoak[i].getElementsByTagName('linka')[0].childNodes[0].nodeValue;
       bideoa.setAttribute("allowfullscreen","");
       divBideoa.appendChild(bideoa);
-      let aurkitua=false;
-      for(j=0; j<bideoak[i].getElementsByTagName('likes').length; j++){
-        console.log(bideoak[i].getElementsByTagName('likes')[0].getElementsByTagName('erabiltzailea')[j].childNodes[0].nodeValue);
+      var aurkitua=false;
+      for(j=0; j<bideoak[i].getElementsByTagName('likes')[0].getElementsByTagName('erabiltzailea').length; j++){
         if(emaila==bideoak[i].getElementsByTagName('likes')[0].getElementsByTagName('erabiltzailea')[j].childNodes[0].nodeValue){
           aurkitua = true;
           break;
@@ -60,12 +65,16 @@ function bideoakIkusi(xml,kategoria,emaila) {
         let heart = document.createElement("i");
         heart.style= "color:red";
         heart.className="fa fa-heart";
+        heart.setAttribute('onclick', 'likeEman(this)');
+        //heart.onclick = likeEman(this);
         like.appendChild(heart);
         divBideoa.appendChild(like);
       }else{
         let like = document.createElement("span");
         let heart = document.createElement("i");
         heart.className="fa fa-heart-o";
+        heart.setAttribute('onclick', 'likeEman(this)');
+        //heart.onclick = likeEman(this);
         like.appendChild(heart);
         divBideoa.appendChild(like);
       }
