@@ -51,4 +51,12 @@ function bideoakIkusi(xml,kategoria) {
     }
   }
 
+  if(document.getElementById('bideoak').innerHTML == ""){
+    let mezua = document.createElement("h2");
+    mezua.textContent = "Kategoria honetan oraindik ez dago bideorik";
+    mezua.style = "text-align:center; margin-top: 170px";
+    document.getElementById('bideoak').appendChild(mezua);
+
+  }
+
 }
