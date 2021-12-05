@@ -19,7 +19,7 @@ window.onclick = function(event) {
   }
 }
 
-
+/*
 //STICKY NAVBAR
 // When the user scrolls the page, execute myFunction
 window.onscroll = function() {stickyNavbar()};
@@ -39,7 +39,7 @@ function stickyNavbar() {
     navbar.classList.remove("sticky");
   }
 }
-
+*/
 function balidatu(f) {
   var titulua = document.getElementById("titulua");
   var linka = document.getElementById("linka");

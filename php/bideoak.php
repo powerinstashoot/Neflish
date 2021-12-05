@@ -54,6 +54,7 @@ function gorde_bideoa($titulua, $linka, $azalpena, $kategoria){
 		$berria->addChild('azalpena',$azalpena);
 	}
 	$berria->addChild('kategoria',$kategoria);
+	$berria->addChild('likes');
 	$bl['azkenid']=$id;	// Eguneratu erroko 'azkenid' atributua.
 	$result = $bl->asXML($BL_FILE);
 	return $result;	// Gorde aldaketak fitxategian.
