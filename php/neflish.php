@@ -35,9 +35,29 @@
 		                        }
 		                        ?>
 		                        <iframe width="430" height="315" src="<?php echo $bideoa->linka; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		                        <span id="like1">
-		                            <i class="fa fa-heart-o" aria-hidden="true"></i>
-		                        </span>
+		                        <?php
+									foreach($bideoa->likes->erabiltzailea as $erab){
+										if($_SESSION['email']==$erab){
+												$aurkitua=true;
+												break;
+										}else{
+											$aurkitua=false;
+										}
+									}
+									if($aurkitua==false){
+										?>
+										<span>
+		                            		<i class="fa fa-heart-o" aria-hidden="true"></i>
+		                        		</span>
+										<?php
+									}else{
+										?>
+										<span>
+		                            		<i style="color:red" class="fa fa-heart" aria-hidden="true"></i>
+		                        		</span>
+										<?php
+									}
+								?>
 		                    </div>
 		            <?php
 		                }

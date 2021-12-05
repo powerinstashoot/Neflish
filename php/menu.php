@@ -12,10 +12,10 @@
     <li><a href="#">Zure gustoko pelikulak</a></li>
     <li onclick="onClickMenu()" class="dropbtn">Kategoriak <i class="fa fa-arrow-down"></i></li>
     <div id="myDropdown" class="dropdown-content">
-      <a href="#" onclick="kategoria('teknologia')">Teknologia</a>
-      <a href="#" onclick="kategoria('bidaia')">Bidaiak</a>
-      <a href="#" onclick="kategoria('janaria')">Janaria</a>
-      <a href="#" onclick="kategoria('futbola')">Futbola</a>
+      <a href="#" onclick="kategoria('teknologia','<?php echo($_SESSION['email']);?>')">Teknologia</a>
+      <a href="#" onclick="kategoria('bidaia','<?php echo($_SESSION['email']);?>')">Bidaiak</a>
+      <a href="#" onclick="kategoria('janaria','<?php echo($_SESSION['email']);?>')">Janaria</a>
+      <a href="#" onclick="kategoria('futbola','<?php echo($_SESSION['email']);?>')">Futbola</a>
     </div>
     <li>Bideo hoberenak</li>
     <?php
