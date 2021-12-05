@@ -12,10 +12,8 @@
 		<title>Neflish</title>
 	</head>
 	<body>
-		<h2>Orri nagusia</h2>
-
 		<?php include 'menu.php' ?>
-
+		<h2>Orri nagusia</h2>
 		<div class="content" id="bideoak">
 				<?php
 					$BL_FILE='../data/neflish_bideoak.xml';

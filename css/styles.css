@@ -13,6 +13,8 @@ h3{
   font-family: 'Josefin Sans', sans-serif;
   color: #f04116ce;
 }
+
+/* ----- PELIKULEN ZERRENDA --------------*/
 .divBideoa{
   text-align: center;
   width: 430px;
@@ -34,7 +36,41 @@ h3{
   left:-25px;
 }
 
-nav{
+/* ---------------MENUA------------------*/
+:root {
+	--gorria: #E50914;
+	--fondoa: #141414;
+}
+header .logo {
+  font-size: 35px !important;
+}
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+header {
+  /*padding: 10px 0;*/
+  background: var(--fondoa);
+}
+
+header .container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+header nav a {
+	color: #AAA;
+  font-family: 'Bai Jamjuree', sans-serif;
+	text-decoration: none;
+	margin-right: 20px;
+}
+header nav a:hover,
+header nav a.activo {
+	color: #FFF;
+}
+
+/*nav{
 	background-color: #ff4040;
 	color: #804040;
 }
@@ -42,8 +78,8 @@ nav{
 nav ul{
 	display: flex;
 
-}
-nav li{
+}*/
+/*nav li{
 	font-family: 'Bai Jamjuree', sans-serif;
   list-style: none;
   float: right;
@@ -61,19 +97,19 @@ nav li a {
 }
 nav a{
 	color:inherit;
-}
-.dropbtn {
+}*/
+/*.dropbtn {
   background-color: #ff4040;
   padding:12px;
   border: none;
   cursor: pointer;
-}
-.dropbtn i{
+}*/
+/*.dropbtn i{
   color: #804040;
-}
-.dropbtn:hover, .dropbtn:focus {
+}*/
+/*.dropbtn:hover, .dropbtn:focus {
   background-color: #ffffff33;
-}
+}*/
 
 .dropdown {
   position: relative;
