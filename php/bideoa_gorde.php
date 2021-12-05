@@ -11,23 +11,10 @@
 	</head>
 	<body>
 		<h2>Bideoa gorde</h2>
-		<nav id="navbar">
-			<ul>
-				<li>
-					<button onclick="onClickMenu()" class="dropbtn"><i class="fa fa-bars"></i></button>
-						<div id="myDropdown" class="dropdown-content">
-							<a href="#home">Pelikulak</a>
-							<a href="#about">Serieak</a>
-							<a href="#contact">Kritikak</a>
-					</div>
-				</li>
-				<li>Kontaktua</li>
-				<li>Informazioa</li>
-			</ul>
-		</nav>
+		<?php include 'menu.php' ?>
 
 		<div class="content">
-			
+
 			<form action="../php/bideoa_gorde.php" method="POST">
 				<div class="inputgroup">
 					<label for="titulua">Titulua:</label>
@@ -51,26 +38,31 @@
 					</select>
 				</div>
 				<div class="inputgroup">
-					<input type="submit" onclick="return balidatu(this.form);">
-				</div> 
+					<input type="submit" name="igo" onclick="return balidatu(this.form);">
+				</div>
 			</form>
 			<?php
 			require_once('bideoak.php');
-			
-			// Jaso formularioko balioak eta testuei hasierako eta amaierako hutsuneak kendu (trim).
-			$titulua=trim($_POST['titulua']);
-			$linka=trim($_POST['linka']);
-			$azalpena=trim($_POST['azalpena']);
-			$kategoria=trim($_POST['kategoria']);
 
-			// Formularioa balidatu
-			$errorea = balidatu_bideoa($titulua, $linka, $azalpena, $kategoria);
-			
-			if($errorea == ''){
-				if(!gorde_bideoa($titulua, $linka, $azalpena, $kategoria)){	// Gorde bideoa datu basean (XML fitxategia).
-					$errorea = '<li>Ezin izan da bideoa datu basean gorde.</li>';
+			// Jaso formularioko balioak eta testuei hasierako eta amaierako hutsuneak kendu (trim).
+			if(isset($_POST['igo'])){
+				$titulua=trim($_POST['titulua']);
+				$linka=trim($_POST['linka']);
+				$azalpena=trim($_POST['azalpena']);
+				$kategoria=trim($_POST['kategoria']);
+
+				// Formularioa balidatu
+				$errorea = balidatu_bideoa($titulua, $linka, $azalpena, $kategoria);
+
+				if($errorea == ''){
+					if(!gorde_bideoa($titulua, $linka, $azalpena, $kategoria)){	// Gorde bideoa datu basean (XML fitxategia).
+						$errorea = '<li>Ezin izan da bideoa datu basean gorde.</li>';
+					}
 				}
 			}
+
+
+
 		?>
 		</div>
 
