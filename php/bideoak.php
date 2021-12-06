@@ -52,6 +52,8 @@ function gorde_bideoa($titulua, $linka, $azalpena, $kategoria){
 	$berria->addChild('linka', htmlspecialchars($linka));
 	if ($azalpena!='') {
 		$berria->addChild('azalpena',$azalpena);
+	}else{
+		$berria->addChild('azalpena');
 	}
 	$berria->addChild('kategoria',$kategoria);
 	$berria->addChild('likes');

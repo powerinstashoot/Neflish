@@ -16,6 +16,15 @@
 	<body>
 		<?php include 'menu.php' ?>
 		<h2>Orri nagusia</h2>
+		<div class="dropdown">
+          <a href="#" onclick="onClickMenu()" class="dropbtn">Kategoriak <i class="fa fa-sort-down"></i></a>
+          <div id="myDropdown" class="dropdown-content">
+            <a onclick="kategoria('teknologia','<?php echo($_SESSION['email']);?>')">Teknologia</a>
+            <a onclick="kategoria('bidaia','<?php echo($_SESSION['email']);?>')">Bidaiak</a>
+            <a onclick="kategoria('janaria','<?php echo($_SESSION['email']);?>')">Janaria</a>
+            <a onclick="kategoria('futbola','<?php echo($_SESSION['email']);?>')">Futbola</a>
+          </div>
+        </div>
 		<div class="content" id="bideoak">
 				<?php
 					$BL_FILE='../data/neflish_bideoak.xml';

@@ -10,9 +10,8 @@
 		<title>Neflish</title>
 	</head>
 	<body>
-		<h2>Bideoa gorde</h2>
 		<?php include 'menu.php' ?>
-
+		<h2>Bideoa gorde</h2>
 		<div class="content">
 
 			<form action="../php/bideoa_gorde.php" method="POST">

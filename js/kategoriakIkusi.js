@@ -24,9 +24,8 @@ function bideoakIkusi(xml,kategoria,emaila) {
   document.getElementById('bideoak').innerHTML = "";
 
   for (i = 0; i<bideoak.length; i++) {
-
+    
     if(bideoak[i].getElementsByTagName('kategoria')[0].childNodes[0].nodeValue == kategoria){
-
       let divBideoa = document.createElement("div");
       divBideoa.className = "divBideoa";
       divBideoa.setAttribute('id', bideoak[i]['id']);
@@ -34,12 +33,12 @@ function bideoakIkusi(xml,kategoria,emaila) {
       let titulua = document.createElement("h2");
       titulua.textContent = bideoak[i].getElementsByTagName('titulua')[0].childNodes[0].nodeValue;
       divBideoa.appendChild(titulua);
-
+      console.log(bideoak[i].getElementsByTagName('titulua')[0].childNodes[0].nodeValue);
       let kategoria = document.createElement("h3");
       kategoria.textContent = bideoak[i].getElementsByTagName('kategoria')[0].childNodes[0].nodeValue;
       divBideoa.appendChild(kategoria);
-
-      if(bideoak[i].getElementsByTagName('azalpena')[0].childNodes[0].nodeValue != ""){
+      console.log(bideoak[i].getElementsByTagName('azalpena')[0].childNodes[0]==null);
+      if(bideoak[i].getElementsByTagName('azalpena')[0].childNodes[0]!=null){
         let azalpena = document.createElement("p");
         azalpena.textContent = bideoak[i].getElementsByTagName('azalpena')[0].childNodes[0].nodeValue;
         divBideoa.appendChild(azalpena);

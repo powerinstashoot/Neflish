@@ -1,6 +1,6 @@
 <header>
   <div class="container">
-    <h2 class="logo">Neflish</h2>
+    <a href="neflish.php"><h2 class="logo">Neflish</h2></a>
     <nav>
         <!--<li>
           <button onclick="onClickMenu()" class="dropbtn"><i class="fa fa-bars"></i></button>
@@ -12,15 +12,6 @@
         </li>-->
         <a href="neflish.php">Hasiera</a>
         <a href="bideoGustokoak.php">Zure gustoko pelikulak</a>
-        <div class="dropdown">
-          <a href="#" onclick="onClickMenu()" class="dropbtn">Kategoriak <i class="fa fa-sort-down"></i></a>
-          <div id="myDropdown" class="dropdown-content">
-            <a href="#" onclick="kategoria('teknologia','<?php echo($_SESSION['email']);?>')">Teknologia</a>
-            <a href="#" onclick="kategoria('bidaia','<?php echo($_SESSION['email']);?>')">Bidaiak</a>
-            <a href="#" onclick="kategoria('janaria','<?php echo($_SESSION['email']);?>')">Janaria</a>
-            <a href="#" onclick="kategoria('futbola','<?php echo($_SESSION['email']);?>')">Futbola</a>
-          </div>
-        </div>
         <a href="bideoHoberenak.php">Bideo hoberenak</a>
         <?php
           if($_SESSION['email'] == 'admin@gmail.com'){
