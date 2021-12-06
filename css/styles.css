@@ -1,5 +1,4 @@
 @charset "ISO-8859-1";
-@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@200&family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Josefin+Sans&display=swap');
 
 /* ----- PELIKULEN ZERRENDA --------------*/
@@ -23,6 +22,7 @@
   top:20px;
   left:-25px;
 }
+
 
 /* ---------------MENUA------------------*/
 :root {
@@ -73,47 +73,7 @@ header nav a.activo {
 	color: #FFF;
 }
 
-/*nav{
-	background-color: #ff4040;
-	color: #804040;
-}
-
-nav ul{
-	display: flex;
-
-}*/
-/*nav li{
-	font-family: 'Bai Jamjuree', sans-serif;
-  list-style: none;
-  float: right;
-}
-nav li:not(:first-child){
-  padding:10px;
-  margin: 0 10px;
-
-}
-nav li:hover{
-	background-color: #ffffff33;
-}
-nav li a {
-  text-decoration: none;
-}
-nav a{
-	color:inherit;
-}*/
-/*.dropbtn {
-  background-color: #ff4040;
-  padding:12px;
-  border: none;
-  cursor: pointer;
-}*/
-/*.dropbtn i{
-  color: #804040;
-}*/
-/*.dropbtn:hover, .dropbtn:focus {
-  background-color: #ffffff33;
-}*/
-
+/* ---------------KATEGORIAK------------------*/
 .dropdown {
   position: relative;
   display: inline-block;
@@ -141,14 +101,78 @@ nav a{
 
 .show {display: block;}
 
-/* The sticky class is added to the navbar with JS when it reaches its scroll position */
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
+/* ---------------Pelikula Nagusia------------------*/
+
+.pelikula-nagusia {
+  font-size: 16px;
+  min-height: 40.62em;
+  color: #fff;
+  background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../img/backdrop.jpg);
+  background-position: center center;
+  background-size: cover;
+  margin-bottom: 3.12em;
+  display: flex;
+  align-items: end;
 }
 
-/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
-  padding-top: 60px;
+.pelikula-nagusia .container {
+  margin: 0 auto;
+  margin-bottom: 6.25em;
+}
+
+.pelikula-nagusia .titulua {
+  font-weight: 600;
+  font-size: 3.12em;
+  margin-bottom: 0.4em;
+}
+
+.pelikula-nagusia .azalpena {
+  font-weight: normal;
+  font-size: 1em;
+  line-height: 1.75em;
+  max-width: 50%;
+  margin-bottom: 1.25em;
+}
+
+.pelikula-nagusia .botoia {
+  background: rgba(0,0,0, 0.5);
+  border: none;
+  border-radius: 0.31em;
+  padding: 0.93em 1.87em;
+  color: #fff;
+  margin-right: 1.25em;
+  cursor: pointer;
+  transition: .3s ease all;
+  font-size: 1.12em;
+}
+
+.pelikula-nagusia .botoia:hover {
+  background: #fff;
+  color: #000;
+}
+
+.pelikula-nagusia .botoia i {
+  margin-right: 1.25em;
+  text-align: center;
+}
+
+/* ---- ----- ----- Media Queries ----- ----- ----- */
+@media screen and (max-width: 800px) {
+  header .logo {
+    margin-bottom: 10px;
+    font-size: 30px;
+  }
+
+  header .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .pelikula-nagusia {
+    font-size: 14px;
+  }
+
+  .pelikula-nagusia .azalpena {
+    max-width: 100%;
+  }
 }

@@ -7,9 +7,9 @@
         <a href="bideoHoberenak.php" class="">Bideo hoberenak</a>
         <?php
           if($_SESSION['email'] == 'admin@gmail.com'){
-            echo '<a href="bideoa_gorde.php" class="menu">Bideoak gehitu</a>';
+            echo '<a href="bideoa_gorde.php" class="">Bideoak gehitu</a>';
           }
-         ?>
+        ?>
         <a href="logout.php">Logout</a>
     </nav>
   </div>
