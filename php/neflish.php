@@ -12,11 +12,20 @@
 		<script src="../js/likeEman.js" type="text/javascript" charset="utf-8"></script>
 		<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="../js/menu.js"></script>
+		<script type="text/javascript" src="../js/playVideo.js"></script>
+		<script src="https://www.youtube.com/iframe_api"></script>
 		<link rel="icon" href="../img/NeflishLogo3.png">
 		<title>Neflish</title>
 	</head>
 	<body>
 		<?php include 'menu.php' ?>
+		<div class="playerWrapper" id="playerWrapper">
+			<span>
+				<i onclick=bideoa_itxi() class="fa fa-close" style="color:white"></i>
+			</span>
+			<div id="player"></div>
+		
+		</div>
   	<main>
 	    <div class="pelikula-nagusia">
 	    	<div class="container" id="nagusia">
@@ -41,6 +50,19 @@
 	            <a onclick="kategoria('futbola','<?php echo($_SESSION['email']);?>')">Futbola</a>
 	          </div>
 	    </div>
+		
+		
+		
+		<div class="kutxa" id="bideoKutxa">
+			<img src="" width="430" height="315">
+			<span>
+				<i onclick=popup_itxi() class="fa fa-close" style="color:white"></i>
+			</span>
+			<h3 class="titulua"></h3>
+			<p class="azalpena"></p>
+			<button role="button" class="botoia" id="playFull"><i class="fas fa-play"></i>Play</button>
+			<button role="button" onclick="likeEmanNagusia(this)" class="botoia"><i class="fa fa-heart-o" aria-hidden="true"></i>Gustoko dut</button>
+		</div>
 		<div class="content" id="bideoak">
 				<?php
 					$BL_FILE='../data/neflish_bideoak.xml';
@@ -61,7 +83,8 @@
 		                            echo '<p>'.$bideoa->azalpena.'</p>';
 		                        }
 		                        ?>
-		                        <iframe width="430" height="315" src="<?php echo $bideoa->linka; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								<img src="<?php echo $bideoa->irudia; ?>" alt="<?php echo $bideoa->titulua; ?>" width="430" height="315" onclick="popup_video('<?php echo $bideoa->titulua; ?>','<?php echo $bideoa->azalpena; ?>','<?php echo $bideoa->irudia; ?>','<?php echo $bideoa->linka; ?>')">
+		                        
 		                        <?php
 									$aurkitua=false;
 									foreach($bideoa->likes->erabiltzailea as $erab){

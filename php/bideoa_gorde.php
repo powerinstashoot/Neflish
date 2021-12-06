@@ -16,7 +16,7 @@
 		<?php include 'menu.php' ?>
 		<div class="content">
 
-			<form action="../php/bideoa_gorde.php" method="POST">
+			<form action="../php/bideoa_gorde.php" method="POST" enctype="multipart/form-data">
 				<div class="inputgroup">
 					<label for="titulua">Titulua:</label>
 					<input type="text" id="titulua" name="titulua">
@@ -62,21 +62,22 @@
 					$irudia=null;
 				}
 				
-
 				// Formularioa balidatu
 				$errorea = balidatu_bideoa($titulua, $linka, $azalpena, $kategoria, $irudia);
-
+				
 				if($errorea == ''){
-					$image = $_FILES['img']['tmp_name'];
-					$irudia1 = addslashes(file_get_contents($image));
-					if(!gorde_bideoa($titulua, $linka, $azalpena, $kategoria, $irudia1)){	// Gorde bideoa datu basean (XML fitxategia).
+					$tempimage = $_FILES['img']['tmp_name'];
+					if(!gorde_bideoa($titulua, $linka, $azalpena, $kategoria, $tempimage, $irudia)){	// Gorde bideoa datu basean (XML fitxategia).
 						$errorea = '<li>Ezin izan da bideoa datu basean gorde.</li>';
 					}
 				}
+				if($errorea != '') {
+					echo '<ul>'.$errorea.'</ul>';
+				} else {
+					echo '<ul><li>Bideoa datu basean gorde da.</li></ul>';
+				}
+				 
 			}
-
-
-
 		?>
 		</div>
 

@@ -3,7 +3,7 @@
 			$konexioa = new mysqli ("localhost", "root", "", "sza") or die ("Ezin izan da DB-ra konektatu");
 			$erabemail = $_POST['login-email'];
 			$pasahitza = $_POST['login-password'];
-			$eskaera = "SELECT * FROM Erabiltzailea WHERE email = '$erabemail'";
+			$eskaera = "SELECT * FROM erabiltzailea WHERE email = '$erabemail'";
 			$emaitza = $konexioa->query($eskaera);
 			if(!$emaitza){
 				die("Errorea querya gauzatzerakoan. ").$emaitza->error;
