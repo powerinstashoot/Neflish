@@ -2,18 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@200&family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Josefin+Sans&display=swap');
 
-h2{
-  font-family: 'Bebas Neue', cursive;
-  font-weight: 500;
-  color: red;
-  text-shadow: 4px 4px 4px gray;
-}
-
-h3{
-  font-family: 'Josefin Sans', sans-serif;
-  color: #f04116ce;
-}
-
 /* ----- PELIKULEN ZERRENDA --------------*/
 .divBideoa{
   text-align: center;
@@ -41,16 +29,32 @@ h3{
 	--gorria: #E50914;
 	--fondoa: #141414;
 }
-header .logo {
-  font-size: 35px !important;
+
+body {
+  background: var(--fondo);
+  font-family: 'Open Sans', sans-serif;
 }
+
+header .logo {
+  font-family: 'Bebas Neue', cursive;
+  font-weight: normal;
+  color: var(--gorria);
+  font-size: 40px;
+}
+
 .container {
   width: 90%;
   margin: auto;
 }
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 header {
-  /*padding: 10px 0;*/
+  padding: 30px 0;
   background: var(--fondoa);
 }
 
@@ -61,9 +65,8 @@ header .container {
 }
 header nav a {
 	color: #AAA;
-  font-family: 'Bai Jamjuree', sans-serif;
-	text-decoration: none;
-	margin-right: 20px;
+  text-decoration: none;
+  margin-right: 20px;
 }
 header nav a:hover,
 header nav a.activo {

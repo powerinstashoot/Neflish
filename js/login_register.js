@@ -1,4 +1,3 @@
-
 function aldatuActiveLog(){
 	document.getElementById("divLog").classList.add("is-active");
 	document.getElementById("divReg").classList.remove("is-active");
@@ -7,7 +6,6 @@ function aldatuActiveLog(){
 function aldatuActiveReg(){
 	document.getElementById("divReg").classList.add("is-active");
 	document.getElementById("divLog").classList.remove("is-active");
-
 }
 
 var dis=false;

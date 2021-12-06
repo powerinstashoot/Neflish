@@ -6,12 +6,12 @@
 		<link rel="stylesheet" type="text/css" href="../css/styles.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 		<script type="text/javascript" src="../js/dynamicClient.js"></script>
+		<script type="text/javascript" src="../js/menu.js"></script>
 		<link rel="icon" href="../img/NeflishLogo3.png">
 		<title>Neflish</title>
 	</head>
-	<body>
+	<body class="bideoG">
 		<?php include 'menu.php' ?>
-		<h2>Bideoa gorde</h2>
 		<div class="content">
 
 			<form action="../php/bideoa_gorde.php" method="POST">

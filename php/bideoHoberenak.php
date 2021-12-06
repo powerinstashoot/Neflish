@@ -10,12 +10,12 @@
 		<script src="../js/kategoriakIkusi.js" type="text/javascript" charset="utf-8"></script>
 		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 		<script src="../js/likeEman.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../js/menu.js"></script>
 		<link rel="icon" href="../img/NeflishLogo3.png">
 		<title>Neflish</title>
 	</head>
-	<body>
+	<body class="bideoHob">
 		<?php include 'menu.php' ?>
-		<h2>Gustoko bideoak</h2>
 		<div class="content" id="bideoak">
 				<?php
 					$BL_FILE='../data/neflish_bideoak.xml';
