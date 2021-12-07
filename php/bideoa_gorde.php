@@ -32,10 +32,10 @@
 				<div class="inputgroup">
 					<label for="kategoria">Kategoria:</label>
 					<select id="kategoria" name="kategoria">
-						<option value="teknologia">Teknologia</option>
-						<option value="bidaiak">Bidaiak</option>
-						<option value="janaria">Janaria</option>
-						<option value="futbola">Futbola</option>
+						<option value="Komedia">Komedia</option>
+						<option value="Zientzia-fikzioa">Zientzia-fikzioa</option>
+						<option value="Beldurrezkoak">Beldurrezkoak</option>
+						<option value="Haurrentzako">Haurrentzako</option>
 					</select>
 				</div>
 				<div class="inputgroup">
