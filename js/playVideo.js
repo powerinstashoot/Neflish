@@ -1,19 +1,21 @@
 var currentVideo;
 
-function popup_video(titulua, azalpena, irudiURL, bideoURL) {
+function popup_video(titulua, azalpena, irudiURL, bideoURL, bideoId) {
   $('body').css('overflow', 'hidden');
   var bideoKutxa = document.getElementById("bideoKutxa");
-  var irudi = bideoKutxa.querySelector("img");
+  var irudiaKutxa = document.getElementById("irudiaKutxa");
+  var infoKutxa= document.getElementById("infoKutxa");
+  irudiaKutxa.style.backgroundImage = "url("+irudiURL+")";
   var kutxaTitulua = bideoKutxa.querySelector("h3");
   var kutxaAzalpena = bideoKutxa.querySelector("p");
-
+  kutxaTitulua.setAttribute('id',bideoId);
   kutxaTitulua.innerText = titulua;
   kutxaAzalpena.innerText = azalpena;
-  irudi.src = irudiURL;
   var arr = bideoURL.split("/");
   currentVideo = arr.at(-1); //arrayko azken elementua
   //player.loadVideoById(keyVideo);
-  bideoKutxa.style.display = "block";  
+  bideoKutxa.style.display = "grid";
+  infoKutxa.style.display="inline-block";
 }
 
 function popup_itxi() {
@@ -28,7 +30,6 @@ function bideoa_itxi() {
   player.stopVideo();
 
 }
-
 
 var player, iframe;
 var $qs = document.querySelector.bind(document);

@@ -15,7 +15,6 @@
 	<body class="bideoG">
 		<?php include 'menu.php' ?>
 		<div class="content">
-
 			<form action="../php/bideoa_gorde.php" method="POST" enctype="multipart/form-data">
 				<div class="inputgroup">
 					<label for="titulua">Titulua:</label>

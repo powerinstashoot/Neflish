@@ -87,17 +87,22 @@
 	    </div>
 		
 		
-		
 		<div class="kutxa" id="bideoKutxa">
-			<img src="" width="430">
-			<span>
-				<i onclick=popup_itxi() class="fa fa-close" style="color:white"></i>
-			</span>
-			<h3 class="titulua"></h3>
-			<p class="azalpena"></p>
-			<button role="button" class="botoia" id="playFull"><i class="fas fa-play"></i>Play</button>
-			<button role="button" onclick="likeEman(this)" class="botoia"><i class="fa fa-heart-o" aria-hidden="true"></i>Gustoko dut</button>
+			<div class="irudiaKutxa" id="irudiaKutxa">
+				<span>
+					<i onclick=popup_itxi() class="fa fa-close" style="color:white"></i>
+				</span>
+				<div class="container">
+					<h3 class="titulua"></h3>
+					<button role="button" class="botoia" id="playFull"><i class="fas fa-play"></i>Play</button>
+					<button role="button" onclick="likeEman(this)" class="botoia"><i class="fa fa-heart-o" aria-hidden="true"></i>Gustoko dut</button>
+				</div>
+			</div>
+			<div class="infoKutxa" id="infoKutxa">
+				<p class="azalpena container"></p>
+			</div>
 		</div>
+
 		<div class="content" id="bideoak">
 			<?php
 				$BL_FILE='../data/neflish_bideoak.xml';
@@ -112,22 +117,7 @@
 						<div class="kategoria-estiloa">
 							<div class="container-titulua-kontrolak">
 								<h3><?php echo($kat);?></h3>
-								<div class="indikagailuak">
-									
-									<?php 
-									/*
-									$kont=0;
-									foreach($bl->xpath("//bideoa/kategoria") as $kategoria){
-										$kont=$kont+1;
-										}
-									$kont=ceil($kont/5);
-									for($i=0; $i<$kont; $i++){
-										echo("<button></button>");
-									}
-									*/
-									?>
-									
-								</div>
+								<div class="indikagailuak"></div>
 							</div>
 							<div class="container-nagusia">
 								<button role="button" id="ezker-gezia" class="ezker-gezia"><i class="fas fa-angle-left"></i></button>
@@ -139,7 +129,7 @@
 							if($bideoa['id']!="nagusia" && $kat==$bideoa->kategoria){
 							?>
 										<div class="divBideoa pelikula" id="<?php echo($bideoa['id']);?>">
-											<img src="<?php echo $bideoa->irudia; ?>" alt="<?php echo $bideoa->titulua; ?>" onclick="popup_video('<?php echo $bideoa->titulua; ?>','<?php echo $bideoa->azalpena; ?>','<?php echo $bideoa->irudia; ?>','<?php echo $bideoa->linka; ?>')">
+											<img src="<?php echo $bideoa->irudia; ?>" alt="<?php echo $bideoa->titulua; ?>" onclick="popup_video('<?php echo $bideoa->titulua; ?>','<?php echo $bideoa->azalpena; ?>','<?php echo $bideoa->irudia; ?>','<?php echo $bideoa->linka; ?>', '<?php echo $bideoa['id']; ?>')">
 										</div>
 						
 							<?php
