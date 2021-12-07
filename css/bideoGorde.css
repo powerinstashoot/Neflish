@@ -1,0 +1,68 @@
+.bideoaForm {
+    width:60%;
+    margin: 0 auto;
+}
+
+.izenburuaForm {
+    text-align: center;
+    color:white;
+}
+
+.inputgroup {
+    margin:1rem 0rem 1rem 0rem;
+}
+
+label, .plabel {
+    display: block;
+    color: white;
+    width: 200px;
+    margin-bottom: 7px;
+}
+
+input, textarea, select {
+    width:100%;
+    background-color: #3a3939;
+    color: white;
+    border: 0px;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: 1px solid var(--gorria);
+}
+
+input[type="file"] {
+    display: none;
+}
+
+
+.custom-file-upload {
+    border: 0px;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #3a3939;
+    cursor: pointer;
+    width:100%;
+    text-align: center;
+}
+
+.imageContainer {
+    margin: 7px 0px 7px 0px;
+    text-align: center;
+}
+
+.mt2 {
+    margin-top: 2rem;
+}
+
+.btn-nagusia {
+    background-color: var(--gorria);
+    font-weight: 700;
+    color: white;
+}
+
+.btn-nagusia:active {
+    background-color: #6d050b;
+}
+
