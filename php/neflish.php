@@ -127,16 +127,18 @@
 						<?php
 						foreach($bl->bideoa as $bideoa) {
 							if($bideoa['id']!="nagusia" && $kat==$bideoa->kategoria){
+								$emanda="false";
 								foreach($bideoa->likes->erabiltzailea as $erab){
-									$emanda=false;
 									if ($erab==$_SESSION['email']) {
-										$emanda=true;
+										$emanda="true";
 										break;
+									}else{
+										$emanda="false";
 									}
 								}
 							?>
 										<div class="divBideoa pelikula" id="<?php echo($bideoa['id']);?>">
-											<img src="<?php echo $bideoa->irudia; ?>" alt="<?php echo $bideoa->titulua; ?>" onclick="popup_video('<?php echo $bideoa->titulua; ?>','<?php echo $bideoa->azalpena; ?>','<?php echo $bideoa->irudia; ?>','<?php echo $bideoa->linka; ?>', '<?php echo $bideoa['id']; ?>',<?php echo $emanda;?>)">
+											<img src="<?php echo $bideoa->irudia; ?>" alt="<?php echo $bideoa->titulua; ?>" onclick="popup_video('<?php echo $bideoa->titulua; ?>','<?php echo $bideoa->azalpena; ?>','<?php echo $bideoa->irudia; ?>','<?php echo $bideoa->linka; ?>', '<?php echo $bideoa['id']; ?>','<?php echo $emanda;?>')">
 										</div>
 						
 							<?php

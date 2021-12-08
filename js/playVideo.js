@@ -17,13 +17,13 @@ function popup_video(titulua, azalpena, irudiURL, bideoURL, bideoId, emanda) {
   bideoKutxa.style.display = "grid";
   infoKutxa.style.display="inline-block";
   var bihotza = document.getElementById("bihotza");
-  if(emanda){
-    bihotza.classList.remove("fa fa-heart");
-    bihotza.classList.add("fa fa-heart-o");
+  if(emanda=="false"){
+    bihotza.classList.remove('fa' , 'fa-heart');
+    bihotza.classList.add('fa', 'fa-heart-o');
     bihotza.style.color="";
   }else{
-    bihotza.classList.remove("fa fa-heart-o");
-    bihotza.classList.add("fa fa-heart-o");
+    bihotza.classList.remove('fa', 'fa-heart-o');
+    bihotza.classList.add('fa' , 'fa-heart');
     bihotza.style.color="red";
   }
 }

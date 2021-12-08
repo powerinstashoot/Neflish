@@ -16,7 +16,7 @@ foreach($xml->bideoa as $bideoa){
                     break;
                 }
             }
-        }else if ($egoera=="false"){
+        }else {
             //erabiltzailea gehitu
             $berria = $bideoa->likes;
             $berria->addChild('erabiltzailea', $_SESSION['email']);

@@ -1,6 +1,6 @@
 function likeEman(sender){
     var bideoId = $(sender).siblings('h3').attr('id');
-    var klasea = $(sender).children().hasClass('fa fa-heart'); //Emanda dago.
+    var klasea = $(sender).children().hasClass('fa-heart'); //Emanda dago.
     $.ajax({
         type: "POST",
         url: '../php/likeEman.php',
@@ -20,7 +20,7 @@ function likeEman(sender){
                     },
         error: function(xhr, status, error) {
             alert(xhr.responseText);
-            }
+        }
     });
 }
 
@@ -33,7 +33,6 @@ function likeEmanNagusia(sender){
         data: {'bideoId': "nagusia", 'emanda': klasea},
         cache: false,
         success: function (data) {
-                    console.log(data);
                     if(data){
                         $(sender).children().removeClass('fa fa-heart-o');
                         $(sender).children().addClass('fa fa-heart');

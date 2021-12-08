@@ -1,8 +1,16 @@
-const errenkada = document.querySelector('.container-karrusel');
-const pelikulak = document.querySelectorAll('.pelikula');
+var errenkada = document.querySelector('.container-karrusel');
+var pelikulak = document.querySelectorAll('.pelikula');
 
-const ezkerGezia = document.getElementById('ezker-gezia');
-const eskuinGezia = document.getElementById('eskuin-gezia');
+var ezkerGezia = document.getElementById('ezker-gezia');
+var eskuinGezia = document.getElementById('eskuin-gezia');
+
+document.addEventListener('change', () => {
+	errenkada = document.querySelector('.container-karrusel');
+	pelikulak = document.querySelectorAll('.pelikula');
+
+	ezkerGezia = document.getElementById('ezker-gezia');
+	eskuinGezia = document.getElementById('eskuin-gezia');
+});
 
 // ? ----- ----- Event Listener eskuineko geziarentzat. ----- -----
 eskuinGezia.addEventListener('click', () => {
