@@ -73,7 +73,7 @@
 
 		<div class="container">
 			<div class="dropdown">
-	        <a href="#" onclick="onClickMenu()" class="dropbtn">Kategoriak <i class="fa fa-sort-down" id="gezia"></i></a>
+	        <a href="#" onclick="onClickMenu()" class="dropbtn">Kategoriak &nbsp <i class="fa fa-sort-down" id="gezia"></i></a>
 		        <div id="myDropdown" class="dropdown-content">
 		            <a onclick="kategoria('Komedia')">Komedia</a>
 		            <a onclick="kategoria('Zientzia-fikzioa')">Zientzia-fikzioa</a>
