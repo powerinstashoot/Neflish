@@ -6,26 +6,16 @@
 		<meta charset="ISO-8859-1">
 		<link rel="stylesheet" type="text/css" href="../css/styles.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
-		<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="../js/dynamicClient.js"></script>
 		<script src="../js/kategoriakIkusi.js" type="text/javascript" charset="utf-8"></script>
 		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 		<script src="../js/likeEman.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/playVideo.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" src="../js/menu.js"></script>
-		<script src="https://www.youtube.com/iframe_api"></script>
-		
 		<link rel="icon" href="../img/NeflishLogo3.png">
 		<title>Neflish</title>
 	</head>
 	<body class="bideoHob">
 		<?php include 'menu.php' ?>
-		<div class="playerWrapper" id="playerWrapper">
-			<span>
-				<i onclick=bideoa_itxi() class="fa fa-close" style="color:white"></i>
-			</span>
-			<div id="player"></div>
-		</div>
 		<div class="kutxa" id="bideoKutxa">
 			<div class="irudiaKutxa" id="irudiaKutxa">
 				<span>
@@ -34,7 +24,7 @@
 				<div class="container">
 					<h3 class="titulua"></h3>
 					<button role="button" class="botoia" id="playFull"><i class="fas fa-play"></i>Play</button>
-					<button role="button" onclick="likeEmanTop(this)" class="botoia"><i class="fa fa-heart-o" aria-hidden="true" id="bihotza"></i>Gustoko dut</button>
+					<button role="button" onclick="likeEman(this)" class="botoia"><i class="fa fa-heart-o" aria-hidden="true" id="bihotza"></i>Gustoko dut</button>
 				</div>
 			</div>
 			<div class="infoKutxa" id="infoKutxa">
@@ -42,8 +32,6 @@
 			</div>
 		</div>
 		<div class="content" id="bideoak">
-			<div class="container">
-				<h2 class="sekzioTit">Bideo Hoberenak</h2>
 				<?php
 					$BL_FILE='../data/neflish_bideoak.xml';
 					if(!file_exists($BL_FILE)) {
@@ -63,40 +51,49 @@
                             }
                             array_push($bideoGustokoenak, $handienaId);
                         }
-						?>
-						<div class="bideoakKutxa">
-						<?php
-						$kont=1;
-                        foreach($bl->bideoa as $bideoa){
-                            if(in_array($bideoa['id'], $bideoGustokoenak)){
-								$likeKop = count($bideoa->likes->erabiltzailea);
-								foreach($bideoa->likes->erabiltzailea as $erab){
-									if ($erab==$_SESSION['email']) {
-										$emanda="true";
-										break;
-									}else{
-										$emanda="false";
-									}
-								}
+                        foreach($bl->bideoa as $bid){
+                            if(in_array($bid['id'], $bideoGustokoenak)){
                                 ?>
-                                <div class="topBideoa" id="<?php echo($bideoa['id']);?>">
-									<div class="topIzenburua">
-										<h3>TOP<?php echo $kont; ?></h3>
-										<p><?php echo $likeKop; ?> <i class="fa fa-heart-o" aria-hidden="true" id="bihotza"></i></p>
-									</div>
-									<img src="<?php echo $bideoa->irudia; ?>" alt="<?php echo $bideoa->titulua; ?>" onclick="popup_video('<?php echo $bideoa->titulua; ?>','<?php echo $bideoa->azalpena; ?>','<?php echo $bideoa->irudia; ?>','<?php echo $bideoa->linka; ?>', '<?php echo $bideoa['id']; ?>','<?php echo $emanda;?>')"/>
-								</div>
+                                <div class="divBideoa" id="<?php echo($bid['id']);?>">
+                                    <h2><?php echo $bid->titulua;?></h2>
+                                    <h3><?php echo $bid->kategoria;?></h3>
+                                    <?php
+                                    if($bid->azalpena) {
+                                        echo '<p>'.$bid->azalpena.'</p>';
+                                    }
+                                    ?>
+                                    <iframe width="430" height="315" src="<?php echo $bid->linka; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <?php
+									$aurkitua=false;
+									foreach($bid->likes->erabiltzailea as $erab){
+										if($_SESSION['email']==$erab){
+												$aurkitua=true;
+												break;
+										}else{
+											$aurkitua=false;
+										}
+									}
+									if($aurkitua==false){
+										?>
+										<span>
+		                            		<i onclick="likeEman(this)" class="fa fa-heart-o" aria-hidden="true"></i>
+		                        		</span>
+										<?php
+									}else{
+										?>
+										<span>
+		                            		<i onclick="likeEman(this)" style="color:red" class="fa fa-heart" aria-hidden="true"></i>
+		                        		</span>
+										<?php
+									}
+								?>
+                                
+                                </div>
                                 <?php
-								$kont++;
                             }
-							
                         }
-						?>
-						</div>
-						<?php
                     }
 		            ?>
-				</div>
 		    </div>
 	</body>
 </html>

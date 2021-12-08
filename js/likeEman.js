@@ -4,7 +4,7 @@ function likeEman(sender){
     $.ajax({
         type: "POST",
         url: '../php/likeEman.php',
-        dataType: 'json',
+        dataType: 'html',
         data: {'bideoId': bideoId, 'emanda': klasea},
         cache: false,
         success: function (data) {
