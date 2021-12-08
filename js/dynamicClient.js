@@ -2,7 +2,17 @@
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 function onClickMenu() {
-  document.getElementById("myDropdown").classList.toggle("show");
+  event.preventDefault();
+  var menua=document.getElementById("myDropdown");
+  menua.classList.toggle("show");
+  if(menua.classList.contains("show")){
+    document.getElementById("gezia").classList.remove('fa-sort-down');
+    document.getElementById("gezia").classList.add('fa-sort-up');
+  }else{
+    document.getElementById("gezia").classList.add('fa-sort-down');
+    document.getElementById("gezia").classList.remove('fa-sort-up');
+  }
+  
 }
 
 // Close the dropdown if the user clicks outside of it

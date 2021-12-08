@@ -1,4 +1,4 @@
-function kategoria(izena,emaila) {
+/*function kategoria(izena,emaila) {
 
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -10,12 +10,16 @@ function kategoria(izena,emaila) {
   xhttp.send();
 }
 
+*/
+
+
 /**
  * 
  * @param {*} xml 
  * @param {*} kategoria 
  * @param {*} emaila 
  */
+ /*
 function bideoakIkusi(xml,kategoria,emaila) {
 
   let xmlDoc = xml.responseXML;
@@ -79,7 +83,7 @@ function bideoakIkusi(xml,kategoria,emaila) {
       let irudiaEl= document.createElement("img");
       irudiaEl.setAttribute("src", irudia);
       irudiaEl.setAttribute("alt", titulua);
-      irudiaEl.setAttribute("onclick", "'"+titulua+","+azalpena+","+irudia+","+linka+","+bideoId+","+emanda+"'");
+      irudiaEl.setAttribute("onclick", "popup_video('"+titulua+"','"+azalpena+"','"+irudia+"','"+linka+"','"+bideoId+"','"+emanda+"')");
 
       divBideoa.appendChild(irudiaEl);
       div6.appendChild(divBideoa);
@@ -114,4 +118,18 @@ function bideoakIkusi(xml,kategoria,emaila) {
 
   }
 
+}
+
+*/
+function kategoria(Kategoria){
+  var katArray= document.getElementsByClassName('kategoria-estiloa');
+  for (var i=0; i< katArray.length ; i++) {
+    var titulua= katArray[i].getElementsByTagName("h3")[0].innerText;
+    if (titulua==Kategoria) {
+      katArray[i].style.display="grid";
+    }else{
+      katArray[i].style.display="none";
+    }
+  }
+  
 }

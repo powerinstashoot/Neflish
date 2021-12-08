@@ -7,12 +7,9 @@
 		<link rel="stylesheet" type="text/css" href="../css/styles.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 		<script type="text/javascript" src="../js/dynamicClient.js"></script>
-		<script src="../js/kategoriakIkusi.js" type="text/javascript" charset="utf-8"></script>
 		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-		<script src="../js/likeEman.js" type="text/javascript" charset="utf-8"></script>
 		<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="../js/menu.js"></script>
-		
 		<script src="https://www.youtube.com/iframe_api"></script>
 		<link rel="icon" href="../img/NeflishLogo3.png">
 		<title>Neflish</title>
@@ -76,15 +73,15 @@
 	</main>
 
 		<div class="container">
-				<div class="dropdown">
-	          <a href="#" onclick="onClickMenu()" class="dropbtn">Kategoriak <i class="fa fa-sort-down"></i></a>
-	          <div id="myDropdown" class="dropdown-content">
-	            <a onclick="kategoria('Komedia','<?php echo($_SESSION['email']);?>')">Komedia</a>
-	            <a onclick="kategoria('Zientzia-fikzioa','<?php echo($_SESSION['email']);?>')">Zientzia-fikzioa</a>
-	            <a onclick="kategoria('Beldurrezkoak','<?php echo($_SESSION['email']);?>')">Beldurrezkoak</a>
-	            <a onclick="kategoria('Haurrentzako','<?php echo($_SESSION['email']);?>')">Haurrentzako</a>
-	          </div>
-	    </div>
+			<div class="dropdown">
+	        <a href="#" onclick="onClickMenu()" class="dropbtn">Kategoriak <i class="fa fa-sort-down" id="gezia"></i></a>
+		        <div id="myDropdown" class="dropdown-content">
+		            <a onclick="kategoria('Komedia')">Komedia</a>
+		            <a onclick="kategoria('Zientzia-fikzioa')">Zientzia-fikzioa</a>
+		            <a onclick="kategoria('Beldurrezkoak')">Beldurrezkoak</a>
+		            <a onclick="kategoria('Haurrentzako')">Haurrentzako</a>
+		        </div>
+	    	</div>
 		
 		
 		<div class="kutxa" id="bideoKutxa">
@@ -149,12 +146,15 @@
 								</div>
 								<button role="button" id="eskuin-gezia" class="eskuin-gezia"><i class="fas fa-angle-right"></i></button>
 							</div>
+						</div>
 						<?php
 					}
 				}
 				?>
-						</div>
+				</div>		
 		<script type="text/javascript" src="../js/karrusel.js"></script>
 		<script type="text/javascript" src="../js/playVideo.js"></script>
+		<script src="../js/kategoriakIkusi.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/likeEman.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

@@ -26,7 +26,8 @@ function popup_video(titulua, azalpena, irudiURL, bideoURL, bideoId, emanda) {
     bihotza.classList.add('fa' , 'fa-heart');
     bihotza.style.color="red";
   }
-}
+     
+  }
 
 function popup_itxi() {
   $('body').css('overflow', 'visible');
@@ -73,7 +74,7 @@ function playFullscreen (){
   var bideoTxikia = document.getElementById("playerWrapper");
   bideoTxikia.style.display="block";
   player.loadVideoById(currentVideo);
-  
+  console.log(currentVideo);
   player.playVideo();//won't work on mobile
 
   var requestFullScreen = iframe.requestFullScreen || iframe.mozRequestFullScreen || iframe.webkitRequestFullScreen;

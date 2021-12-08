@@ -4,19 +4,11 @@ var pelikulak = document.querySelectorAll('.pelikula');
 var ezkerGezia = document.getElementById('ezker-gezia');
 var eskuinGezia = document.getElementById('eskuin-gezia');
 
-document.addEventListener('change', () => {
-	errenkada = document.querySelector('.container-karrusel');
-	pelikulak = document.querySelectorAll('.pelikula');
-
-	ezkerGezia = document.getElementById('ezker-gezia');
-	eskuinGezia = document.getElementById('eskuin-gezia');
-});
-
 // ? ----- ----- Event Listener eskuineko geziarentzat. ----- -----
 eskuinGezia.addEventListener('click', () => {
 	errenkada.scrollLeft += errenkada.offsetWidth;
 
-	const indikagailuAktibatuta = document.querySelector('.indikagailuak .aktibatuta');
+	var indikagailuAktibatuta = document.querySelector('.indikagailuak .aktibatuta');
 	if(indikagailuAktibatuta.nextSibling){
 		indikagailuAktibatuta.nextSibling.classList.add('aktibatuta');
 		indikagailuAktibatuta.classList.remove('aktibatuta');
@@ -27,7 +19,7 @@ eskuinGezia.addEventListener('click', () => {
 ezkerGezia.addEventListener('click', () => {
 	errenkada.scrollLeft -= errenkada.offsetWidth;
 
-	const indikagailuAktibatuta = document.querySelector('.indikagailuak .aktibatuta');
+	var indikagailuAktibatuta = document.querySelector('.indikagailuak .aktibatuta');
 	if(indikagailuAktibatuta.previousSibling){
 		indikagailuAktibatuta.previousSibling.classList.add('aktibatuta');
 		indikagailuAktibatuta.classList.remove('aktibatuta');
@@ -35,9 +27,9 @@ ezkerGezia.addEventListener('click', () => {
 });
 
 // ? ----- ----- Orrikapena ----- -----
-const orriKop = Math.ceil(pelikulak.length / 5);
+var orriKop = Math.ceil(pelikulak.length / 5);
 for(let i = 0; i < orriKop; i++){
-	const indikagailua = document.createElement('button');
+	var indikagailua = document.createElement('button');
 
 	if(i === 0){
 		indikagailua.classList.add('aktibatuta');
@@ -55,7 +47,7 @@ for(let i = 0; i < orriKop; i++){
 // ? ----- ----- Hover ----- -----
 pelikulak.forEach((pelikula) => {
 	pelikula.addEventListener('mouseenter', (e) => {
-		const elementua = e.currentTarget;
+		var elementua = e.currentTarget;
 		setTimeout(() => {
 			pelikulak.forEach(pelikula => pelikula.classList.remove('hover'));
 			elementua.classList.add('hover');
