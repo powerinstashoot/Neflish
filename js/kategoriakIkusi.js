@@ -23,65 +23,90 @@ function bideoakIkusi(xml,kategoria,emaila) {
 
   document.getElementById('bideoak').innerHTML = "";
 
+  //Kategoria baten karrusela eratzen
+
+  let div1 = document.createElement("div");
+  div1.className = "kategoria-estiloa";
+  let div2 = document.createElement("div");
+  div2.className = "container-titulua-kontrolak";
+  let kat= document.createElement("h3");
+  kat.innerHTML = kategoria;
+  let div3 = document.createElement("div");
+  div3.className = "indikagailuak";
+  let div4 = document.createElement("div");
+  div4.className = "container-nagusia";
+  let ezkerbotoi = document.createElement("button");
+  ezkerbotoi.className= "ezker-gezia";
+  ezkerbotoi.setAttribute("id", "ezker-gezia");
+  let gezObjektua = document.createElement("i");
+  gezObjektua.className= "fas fa-angle-left";
+  let div5 = document.createElement("div");
+  div5.className = "container-karrusel";
+  let div6 = document.createElement("div");
+  div6.className = "karrusel";
+
+  div2.appendChild(kat);
+  div2.appendChild(div3);
+  div1.appendChild(div2);
+  ezkerbotoi.appendChild(gezObjektua);
+  div4.appendChild(ezkerbotoi);
+
+
+  var kont=0;
+
   for (i = 0; i<bideoak.length; i++) {
-    
     if(bideoak[i].getElementsByTagName('kategoria')[0].childNodes[0].nodeValue == kategoria){
-      let divBideoa = document.createElement("div");
-      divBideoa.className = "divBideoa";
-      divBideoa.setAttribute('id', bideoak[i]['id']);
+      kont++;
+      var titulua=bideoak[i].getElementsByTagName('titulua')[0].childNodes[0].nodeValue;
+      var azalpena= bideoak[i].getElementsByTagName('azalpena')[0].childNodes[0].nodeValue;
+      var irudia= bideoak[i].getElementsByTagName('irudia')[0].childNodes[0].nodeValue;
+      var linka= bideoak[i].getElementsByTagName('linka')[0].childNodes[0].nodeValue;
+      var bideoId=bideoak[i]['id'];
 
-      let titulua = document.createElement("h2");
-      titulua.textContent = bideoak[i].getElementsByTagName('titulua')[0].childNodes[0].nodeValue;
-      divBideoa.appendChild(titulua);
-      console.log(bideoak[i].getElementsByTagName('titulua')[0].childNodes[0].nodeValue);
-      let kategoria = document.createElement("h3");
-      kategoria.textContent = bideoak[i].getElementsByTagName('kategoria')[0].childNodes[0].nodeValue;
-      divBideoa.appendChild(kategoria);
-      console.log(bideoak[i].getElementsByTagName('azalpena')[0].childNodes[0]==null);
-      if(bideoak[i].getElementsByTagName('azalpena')[0].childNodes[0]!=null){
-        let azalpena = document.createElement("p");
-        azalpena.textContent = bideoak[i].getElementsByTagName('azalpena')[0].childNodes[0].nodeValue;
-        divBideoa.appendChild(azalpena);
-      }
-
-      let bideoa = document.createElement("iframe");
-      bideoa.width = "430";
-      bideoa.height ="315";
-      bideoa.src = bideoak[i].getElementsByTagName('linka')[0].childNodes[0].nodeValue;
-      bideoa.setAttribute("allowfullscreen","");
-      divBideoa.appendChild(bideoa);
-      var aurkitua=false;
+      var emanda=false;
       for(j=0; j<bideoak[i].getElementsByTagName('likes')[0].getElementsByTagName('erabiltzailea').length; j++){
+        console.log(bideoak[i].getElementsByTagName('likes')[0].getElementsByTagName('erabiltzailea').length);
         if(emaila==bideoak[i].getElementsByTagName('likes')[0].getElementsByTagName('erabiltzailea')[j].childNodes[0].nodeValue){
-          aurkitua = true;
+          emanda=true;
           break;
-        }else{
-          aurkitua = false;
         }
       }
-      if(aurkitua==true){
-        let like = document.createElement("span");
-        let heart = document.createElement("i");
-        heart.style= "color:red";
-        heart.className="fa fa-heart";
-        heart.setAttribute('onclick', 'likeEman(this)');
-        //heart.onclick = likeEman(this);
-        like.appendChild(heart);
-        divBideoa.appendChild(like);
-      }else{
-        let like = document.createElement("span");
-        let heart = document.createElement("i");
-        heart.className="fa fa-heart-o";
-        heart.setAttribute('onclick', 'likeEman(this)');
-        //heart.onclick = likeEman(this);
-        like.appendChild(heart);
-        divBideoa.appendChild(like);
-      }
-      document.getElementById('bideoak').appendChild(divBideoa);
+
+      let divBideoa = document.createElement("div");
+      divBideoa.className = "divBideoa pelikula";
+      divBideoa.setAttribute('id', bideoId);
+
+      let irudiaEl= document.createElement("img");
+      irudiaEl.setAttribute("src", irudia);
+      irudiaEl.setAttribute("alt", titulua);
+      irudiaEl.setAttribute("onclick", "'"+titulua+","+azalpena+","+irudia+","+linka+","+bideoId+","+emanda+"'");
+
+      divBideoa.appendChild(irudiaEl);
+      div6.appendChild(divBideoa);
+ 
+      
     }
   }
+  let eskuinbotoi =document.createElement("button");
+  eskuinbotoi.className= "eskuin-gezia";
+  eskuinbotoi.setAttribute("id","eskuin-gezia");
 
-  if(document.getElementById('bideoak').innerHTML == ""){
+  let gezObjektua2 = document.createElement("i");
+  gezObjektua2.className= "fas fa-angle-right";
+
+  eskuinbotoi.appendChild(gezObjektua2);
+  
+
+  div5.appendChild(div6);
+  div4.appendChild(div5);
+  div4.appendChild(eskuinbotoi);
+
+  div1.appendChild(div4);
+
+  document.getElementById('bideoak').appendChild(div1);
+
+  if(kont==0){
+    document.getElementById('bideoak').innerHTML == ""
     let mezua = document.createElement("h2");
     mezua.textContent = "Kategoria honetan oraindik ez dago bideorik";
     mezua.style = "text-align:center; margin-top: 170px";

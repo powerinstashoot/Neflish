@@ -95,7 +95,7 @@
 				<div class="container">
 					<h3 class="titulua"></h3>
 					<button role="button" class="botoia" id="playFull"><i class="fas fa-play"></i>Play</button>
-					<button role="button" onclick="likeEman(this)" class="botoia"><i class="fa fa-heart-o" aria-hidden="true"></i>Gustoko dut</button>
+					<button role="button" onclick="likeEman(this)" class="botoia"><i class="fa fa-heart-o" aria-hidden="true" id="bihotza"></i>Gustoko dut</button>
 				</div>
 			</div>
 			<div class="infoKutxa" id="infoKutxa">
@@ -127,9 +127,16 @@
 						<?php
 						foreach($bl->bideoa as $bideoa) {
 							if($bideoa['id']!="nagusia" && $kat==$bideoa->kategoria){
+								foreach($bideoa->likes->erabiltzailea as $erab){
+									$emanda=false;
+									if ($erab==$_SESSION['email']) {
+										$emanda=true;
+										break;
+									}
+								}
 							?>
 										<div class="divBideoa pelikula" id="<?php echo($bideoa['id']);?>">
-											<img src="<?php echo $bideoa->irudia; ?>" alt="<?php echo $bideoa->titulua; ?>" onclick="popup_video('<?php echo $bideoa->titulua; ?>','<?php echo $bideoa->azalpena; ?>','<?php echo $bideoa->irudia; ?>','<?php echo $bideoa->linka; ?>', '<?php echo $bideoa['id']; ?>')">
+											<img src="<?php echo $bideoa->irudia; ?>" alt="<?php echo $bideoa->titulua; ?>" onclick="popup_video('<?php echo $bideoa->titulua; ?>','<?php echo $bideoa->azalpena; ?>','<?php echo $bideoa->irudia; ?>','<?php echo $bideoa->linka; ?>', '<?php echo $bideoa['id']; ?>',<?php echo $emanda;?>)">
 										</div>
 						
 							<?php
@@ -139,12 +146,12 @@
 									</div>
 								</div>
 								<button role="button" id="eskuin-gezia" class="eskuin-gezia"><i class="fas fa-angle-right"></i></button>
-						</div>
+							</div>
 						<?php
 					}
 				}
 				?>
-		</div>
+						</div>
 		<script type="text/javascript" src="../js/karrusel.js"></script>
 		<script type="text/javascript" src="../js/playVideo.js"></script>
 	</body>
