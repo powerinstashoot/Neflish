@@ -18,7 +18,7 @@
 		<div class="content">
 			<div class="container">
 				<form class="bideoaForm" action="../php/bideoa_gorde.php" method="POST" enctype="multipart/form-data">
-					<h2 class="izenburuaForm">Bideoa gehitu</h2>
+					<h2 class="izenburuaForm">Pelikula gehitu</h2>
 					<div class="inputgroup">
 						<label for="titulua">Titulua</label>
 						<input type="text" id="titulua" name="titulua">
@@ -82,14 +82,15 @@
 					}
 				}
 				if($errorea != '') {
-					echo '<ul>'.$errorea.'</ul>';
+					echo'<script type="text/javascript">alert(\'<ul>\'.$errorea.\'</ul>\');</script>';
 				} else {
-					echo '<ul><li>Bideoa datu basean gorde da.</li></ul>';
+					echo'<script type="text/javascript">alert("Bideoa gorde da");</script>';
 				}
 				 
+				
 			}
 		?>
 		</div>
-
+		<?php include 'footer.php' ?>
 	</body>
 </html>

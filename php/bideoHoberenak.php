@@ -43,7 +43,7 @@
 		</div>
 		<div class="content" id="bideoak">
 			<div class="container">
-				<h2 class="sekzioTit">Bideo Hoberenak</h2>
+				<h2 class="sekzioTit">Pelikula hoberenak</h2>
 				<?php
 					$BL_FILE='../data/neflish_bideoak.xml';
 					if(!file_exists($BL_FILE)) {
@@ -98,5 +98,6 @@
 		            ?>
 				</div>
 		    </div>
+			<?php include 'footer.php' ?>
 	</body>
 </html>

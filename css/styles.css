@@ -129,6 +129,7 @@ body {
   background-color: var(--fondoa);
   font-family: 'Open Sans', sans-serif;
   overflow-y: visible;
+  color: white;
 }
 
 
@@ -169,6 +170,22 @@ header nav a {
 header nav a:hover,
 header nav a.activo {
 	color: #FFF;
+}
+
+/* ---- ----- ----- FOOTERRA ----- ----- ----- */
+
+footer {
+  color: white;
+  width:100%;
+  padding: 40px 0px;
+  margin-top: 4rem;
+  text-align: center;
+  font-size:12px;
+  background-color: #1f1e1e;
+}
+
+footer .container {
+  width:100%;
 }
 
 /* ---------------KATEGORIAK------------------*/
@@ -346,7 +363,7 @@ header nav a.activo {
 	box-shadow: 5px 5px 10px rgba(0,0,0, .3);
 }
 
-.kategoria-estiloa .container-karrusel .karrusel .pelikula.hover {
+.kategoria-estiloa .container-karrusel .karrusel .pelikula:hover {
 	transform: scale(1.2);
 	transform-origin: center;
 }
@@ -354,6 +371,8 @@ header nav a.activo {
 .kategoria-estiloa .container-karrusel .karrusel .pelikula img {
 	width: 100%;
 	vertical-align: top;
+  height: 100%;
+  max-height: 200px;
 }
 
 
@@ -393,9 +412,7 @@ header nav a.activo {
 	}
 }
 
-body {
-  color: white;
-}
+/* ---- ----- ----- bideo kutxa ----- ----- ----- */
   
 .bideoakKutxa {
   display: flex;
@@ -441,3 +458,4 @@ body {
   color: white;
   padding-top: 2px;
 }
+

@@ -1,60 +1,68 @@
-var errenkada = document.querySelector('.container-karrusel');
-var pelikulak = document.querySelectorAll('.pelikula');
+//var errenkada = document.querySelectorAll('.container-karrusel');
+var errenkada = document.querySelectorAll('.kategoria-estiloa');
+//var pelikulak = document.querySelectorAll('.pelikula');
 
-var ezkerGezia = document.getElementById('ezker-gezia');
-var eskuinGezia = document.getElementById('eskuin-gezia');
+//var ezkerGezia = document.getElementById('ezker-gezia');
+//var eskuinGezia = document.getElementById('eskuin-gezia');
 
-// ? ----- ----- Event Listener eskuineko geziarentzat. ----- -----
-eskuinGezia.addEventListener('click', () => {
-	errenkada.scrollLeft += errenkada.offsetWidth;
+function karrusel (errenk) {
+	var ezkerGezia = errenk.querySelector('.ezker-gezia');
+	var eskuinGezia = errenk.querySelector('.eskuin-gezia');
 
-	var indikagailuAktibatuta = document.querySelector('.indikagailuak .aktibatuta');
-	if(indikagailuAktibatuta.nextSibling){
-		indikagailuAktibatuta.nextSibling.classList.add('aktibatuta');
-		indikagailuAktibatuta.classList.remove('aktibatuta');
-	}
-});
+	var pelikulak = errenk.querySelectorAll('.pelikula');
 
-// ? ----- ----- Event Listener ezkerreko geziarentzat. ----- -----
-ezkerGezia.addEventListener('click', () => {
-	errenkada.scrollLeft -= errenkada.offsetWidth;
-
-	var indikagailuAktibatuta = document.querySelector('.indikagailuak .aktibatuta');
-	if(indikagailuAktibatuta.previousSibling){
-		indikagailuAktibatuta.previousSibling.classList.add('aktibatuta');
-		indikagailuAktibatuta.classList.remove('aktibatuta');
-	}
-});
-
-// ? ----- ----- Orrikapena ----- -----
-var orriKop = Math.ceil(pelikulak.length / 5);
-for(let i = 0; i < orriKop; i++){
-	var indikagailua = document.createElement('button');
-
-	if(i === 0){
-		indikagailua.classList.add('aktibatuta');
-	}
-
-	document.querySelector('.indikagailuak').appendChild(indikagailua);
-	indikagailua.addEventListener('click', (e) => {
-		errenkada.scrollLeft = i * errenkada.offsetWidth;
-
-		document.querySelector('.indikagailuak .aktibatuta').classList.remove('aktibatuta');
-		e.target.classList.add('aktibatuta');
+	eskuinGezia.addEventListener('click', () => {
+		
+		var karrusel = errenk.querySelector('.container-karrusel');
+		karrusel.scrollLeft += karrusel.offsetWidth;
+		var indikagailuAktibatuta = errenk.querySelector('.indikagailuak .aktibatuta');
+		if(indikagailuAktibatuta.nextSibling){
+			indikagailuAktibatuta.nextSibling.classList.add('aktibatuta');
+			indikagailuAktibatuta.classList.remove('aktibatuta');
+		}
 	});
+
+	// ? ----- ----- Event Listener ezkerreko geziarentzat. ----- -----
+	ezkerGezia.addEventListener('click', () => {
+		
+		var karrusel = errenk.querySelector('.container-karrusel');
+		karrusel.scrollLeft -= karrusel.offsetWidth;
+		var indikagailuAktibatuta = errenk.querySelector('.indikagailuak .aktibatuta');
+		if(indikagailuAktibatuta.previousSibling){
+			indikagailuAktibatuta.previousSibling.classList.add('aktibatuta');
+			indikagailuAktibatuta.classList.remove('aktibatuta');
+		}
+	});
+
+	// ? ----- ----- Orrikapena ----- -----
+	var orriKop = Math.ceil(pelikulak.length / 5);
+	for(let i = 0; i < orriKop; i++){
+		var indikagailua = document.createElement('button');
+
+		if(i === 0){
+			indikagailua.classList.add('aktibatuta');
+		}
+
+		errenk.querySelector('.indikagailuak').appendChild(indikagailua);
+		
+		indikagailua.addEventListener('click', (e) => {
+			var karrusel = errenk.querySelector('.container-karrusel');
+			karrusel.scrollLeft = i * errenk.offsetWidth;
+			errenk.querySelector('.indikagailuak .aktibatuta').classList.remove('aktibatuta');
+			e.target.classList.add('aktibatuta');
+		});
+	}
 }
 
-// ? ----- ----- Hover ----- -----
-pelikulak.forEach((pelikula) => {
-	pelikula.addEventListener('mouseenter', (e) => {
-		var elementua = e.currentTarget;
-		setTimeout(() => {
-			pelikulak.forEach(pelikula => pelikula.classList.remove('hover'));
-			elementua.classList.add('hover');
-		}, 100);
-	});
-});
+for (var i = 0, len = errenkada.length; i < len; i++) {
+    
+	var errenk = errenkada[i];
+	karrusel(errenk);
 
-errenkada.addEventListener('mouseleave', () => {
-	pelikulak.forEach(pelikula => pelikula.classList.remove('hover'));
-});
+}
+
+
+
+
+
+

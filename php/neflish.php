@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php include 'segurtasunaErab.php'?>
-
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
@@ -84,77 +83,82 @@
 	    	</div>
 		
 		
-		<div class="kutxa" id="bideoKutxa">
-			<div class="irudiaKutxa" id="irudiaKutxa">
-				<span>
-					<i onclick=popup_itxi() class="fa fa-close" style="color:white"></i>
-				</span>
-				<div class="container">
-					<h3 class="titulua"></h3>
-					<button role="button" class="botoia" id="playFull"><i class="fas fa-play"></i>Play</button>
-					<button role="button" onclick="likeEman(this)" class="botoia"><i class="fa fa-heart-o" aria-hidden="true" id="bihotza"></i>Gustoko dut</button>
+			<div class="kutxa" id="bideoKutxa">
+				<div class="irudiaKutxa" id="irudiaKutxa">
+					<span>
+						<i onclick=popup_itxi() class="fa fa-close" style="color:white"></i>
+					</span>
+					<div class="container">
+						<h3 class="titulua"></h3>
+						<button role="button" class="botoia" id="playFull"><i class="fas fa-play"></i>Play</button>
+						<button role="button" onclick="likeEman(this)" class="botoia"><i class="fa fa-heart-o" aria-hidden="true" id="bihotza"></i>Gustoko dut</button>
+					</div>
+				</div>
+				<div class="infoKutxa" id="infoKutxa">
+					<p class="azalpena container"></p>
 				</div>
 			</div>
-			<div class="infoKutxa" id="infoKutxa">
-				<p class="azalpena container"></p>
+
+			<div class="content" id="bideoak">
+				<?php
+					$BL_FILE='../data/neflish_bideoak.xml';
+					if(!file_exists($BL_FILE)) {
+						echo('<p>Ez dago bideorik eskuragarri</p>');
+					} elseif(!($bl=simplexml_load_file($BL_FILE))) {
+						echo('<p>Errore bat gertatu da bideoak kargatzean</p>');
+					} else {
+						$kategoriak=array("Komedia", "Zientzia-fikzioa", "Beldurrezkoak", "Haurrentzako");
+						$kont =0;
+						foreach($kategoriak as $kat){
+							$kont++;
+							?>
+							<div class="kategoria-estiloa">
+								<div class="container-titulua-kontrolak">
+									<h3><?php echo($kat);?></h3>
+									<div class="indikagailuak"></div>
+								</div>
+								<div class="container-nagusia">
+									<button role="button" class="ezker-gezia"><i class="fas fa-angle-left"></i></button>
+
+									<div class="container-karrusel" id="ck<?php echo $kont;?>">
+										<div class="karrusel">
+							<?php
+							foreach($bl->bideoa as $bideoa) {
+								if($bideoa['id']!="nagusia" && $kat==$bideoa->kategoria){
+									$emanda="false";
+									foreach($bideoa->likes->erabiltzailea as $erab){
+										if ($erab==$_SESSION['email']) {
+											$emanda="true";
+											break;
+										}else{
+											$emanda="false";
+										}
+									}
+								?>
+											<div class="divBideoa pelikula" id="<?php echo($bideoa['id']);?>">
+												<img src="<?php echo $bideoa->irudia; ?>" alt="<?php echo $bideoa->titulua; ?>" onclick="popup_video('<?php echo $bideoa->titulua; ?>','<?php echo $bideoa->azalpena; ?>','<?php echo $bideoa->irudia; ?>','<?php echo $bideoa->linka; ?>', '<?php echo $bideoa['id']; ?>','<?php echo $emanda;?>')">
+											</div>
+							
+								<?php
+								}
+							}
+							?>
+										</div>
+									</div>
+									<button role="button" class="eskuin-gezia"><i class="fas fa-angle-right"></i></button>
+								</div>
+							</div>
+							<?php
+						}
+					}
+				?>
 			</div>
 		</div>
-
-		<div class="content" id="bideoak">
-			<?php
-				$BL_FILE='../data/neflish_bideoak.xml';
-				if(!file_exists($BL_FILE)) {
-					echo('<p>Ez dago bideorik eskuragarri</p>');
-				} elseif(!($bl=simplexml_load_file($BL_FILE))) {
-					echo('<p>Errore bat gertatu da bideoak kargatzean</p>');
-				} else {
-					$kategoriak=array("Komedia", "Zientzia-fikzioa", "Beldurrezkoak", "Haurrentzako");
-					foreach($kategoriak as $kat){
-						?>
-						<div class="kategoria-estiloa">
-							<div class="container-titulua-kontrolak">
-								<h3><?php echo($kat);?></h3>
-								<div class="indikagailuak"></div>
-							</div>
-							<div class="container-nagusia">
-								<button role="button" id="ezker-gezia" class="ezker-gezia"><i class="fas fa-angle-left"></i></button>
-
-								<div class="container-karrusel">
-									<div class="karrusel">
-						<?php
-						foreach($bl->bideoa as $bideoa) {
-							if($bideoa['id']!="nagusia" && $kat==$bideoa->kategoria){
-								$emanda="false";
-								foreach($bideoa->likes->erabiltzailea as $erab){
-									if ($erab==$_SESSION['email']) {
-										$emanda="true";
-										break;
-									}else{
-										$emanda="false";
-									}
-								}
-							?>
-										<div class="divBideoa pelikula" id="<?php echo($bideoa['id']);?>">
-											<img src="<?php echo $bideoa->irudia; ?>" alt="<?php echo $bideoa->titulua; ?>" onclick="popup_video('<?php echo $bideoa->titulua; ?>','<?php echo $bideoa->azalpena; ?>','<?php echo $bideoa->irudia; ?>','<?php echo $bideoa->linka; ?>', '<?php echo $bideoa['id']; ?>','<?php echo $emanda;?>')">
-										</div>
-						
-							<?php
-							}
-						}
-						?>
-									</div>
-								</div>
-								<button role="button" id="eskuin-gezia" class="eskuin-gezia"><i class="fas fa-angle-right"></i></button>
-							</div>
-						</div>
-						<?php
-					}
-				}
-				?>
-				</div>		
+		<?php include 'footer.php' ?>		
 		<script type="text/javascript" src="../js/karrusel.js"></script>
 		<script type="text/javascript" src="../js/playVideo.js"></script>
 		<script src="../js/kategoriakIkusi.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/likeEman.js" type="text/javascript" charset="utf-8"></script>
+		
 	</body>
 </html>
