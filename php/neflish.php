@@ -21,55 +21,55 @@
 			</span>
 			<div id="player"></div>
 		</div>
-  	<main>
-	    <div class="pelikula-nagusia">
-	    	<div class="container" id="nagusia">
-					<h3 class="titulua">Ted2</h3>
-					<p class="azalpena">
-						Seth MacFarlane komikoak idatzi eta zuzendutako komedia arrakastatsuaren jarraipena da. 
-						Ted eta Tami-Lynn ezkondu berriak, haur bat izatea erabakitzen dute. Johnek bere burua 
-						eskaintzen du esperma emateko, bere lagunik onenak haurra izateko ametsa bete dezan, baina, 
-						ustekabean, gutun legal bat jasotzen dute, esanez estatuak ez diola uzten aita izaten, ez baitago 
-						frogatuta pertsona bat denik. Denek batera indarrak batu beharko dituzte beren eskubideen alde 
-						justizia-auzitegi batean borrokatzeko.
-					</p>
-					<button role="button" class="botoia"><i class="fas fa-play"></i>Play</button>
-					<?php
-					$BL_FILE='../data/neflish_bideoak.xml';
-					if(!file_exists($BL_FILE)) {
-						echo('<p>Ez dago bideorik eskuragarri</p>');
-					} elseif(!($bl=simplexml_load_file($BL_FILE))) {
-						echo('<p>Errore bat gertatu da bideoak kargatzean</p>');
-					} else {
-						$aurkitua=false;
-						foreach($bl->bideoa as $bideoa) {
-							if($bideoa['id']=="nagusia"){
-								foreach($bideoa->likes->erabiltzailea as $erab){
-									if($_SESSION['email']==$erab){
-											$aurkitua=true;
-											break;
-									}else{
-										$aurkitua=false;
+		<main>
+			<div class="pelikula-nagusia">
+				<div class="container" id="nagusia">
+						<h3 class="titulua">Ted2</h3>
+						<p class="azalpena">
+							Seth MacFarlane komikoak idatzi eta zuzendutako komedia arrakastatsuaren jarraipena da. 
+							Ted eta Tami-Lynn ezkondu berriak, haur bat izatea erabakitzen dute. Johnek bere burua 
+							eskaintzen du esperma emateko, bere lagunik onenak haurra izateko ametsa bete dezan, baina, 
+							ustekabean, gutun legal bat jasotzen dute, esanez estatuak ez diola uzten aita izaten, ez baitago 
+							frogatuta pertsona bat denik. Denek batera indarrak batu beharko dituzte beren eskubideen alde 
+							justizia-auzitegi batean borrokatzeko.
+						</p>
+						<button role="button" class="botoia" onclick="playFullscreenNagusia()"><i class="fas fa-play"></i>Play</button>
+						<?php
+						$BL_FILE='../data/neflish_bideoak.xml';
+						if(!file_exists($BL_FILE)) {
+							echo('<p>Ez dago bideorik eskuragarri</p>');
+						} elseif(!($bl=simplexml_load_file($BL_FILE))) {
+							echo('<p>Errore bat gertatu da bideoak kargatzean</p>');
+						} else {
+							$aurkitua=false;
+							foreach($bl->bideoa as $bideoa) {
+								if($bideoa['id']=="nagusia"){
+									foreach($bideoa->likes->erabiltzailea as $erab){
+										if($_SESSION['email']==$erab){
+												$aurkitua=true;
+												break;
+										}else{
+											$aurkitua=false;
+										}
 									}
-								}
-								if($aurkitua==false){
-									?>
-									<button role="button" onclick="likeEmanNagusia(this)" class="botoia"><i class="fa fa-heart-o" aria-hidden="true"></i>Gustoko dut</button>
-									<?php
-								}else{
-									?>
-									<button role="button" onclick="likeEmanNagusia(this)" class="botoia"><i style="color:red" class="fa fa-heart" aria-hidden="true"></i>Gustoko dut</button>
-									<?php
+									if($aurkitua==false){
+										?>
+										<button role="button" onclick="likeEmanNagusia(this)" class="botoia"><i class="fa fa-heart-o" aria-hidden="true"></i>Gustoko dut</button>
+										<?php
+									}else{
+										?>
+										<button role="button" onclick="likeEmanNagusia(this)" class="botoia"><i style="color:red" class="fa fa-heart" aria-hidden="true"></i>Gustoko dut</button>
+										<?php
+									}
 								}
 							}
 						}
-					}
-					?>
-					
+						?>
+						
+					</div>
 				</div>
 			</div>
-		</div>
-	</main>
+		</main>
 
 		<div class="container">
 			<div class="dropdown">

@@ -34,7 +34,7 @@
 				<div class="container">
 					<h3 class="titulua"></h3>
 					<button role="button" class="botoia" id="playFull"><i class="fas fa-play"></i>Play</button>
-					<button role="button" onclick="likeEmanTop(this)" class="botoia"><i class="fa fa-heart-o" aria-hidden="true" id="bihotza"></i>Gustoko dut</button>
+					<button role="button" onclick="likeEman(this)" class="botoia"><i class="fa fa-heart-o" aria-hidden="true" id="bihotza"></i>Gustoko dut</button>
 				</div>
 			</div>
 			<div class="infoKutxa" id="infoKutxa">

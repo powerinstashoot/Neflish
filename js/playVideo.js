@@ -2,6 +2,12 @@ var currentVideo;
 
 function popup_video(titulua, azalpena, irudiURL, bideoURL, bideoId, emanda) {
   $('body').css('overflow', 'hidden');
+  $('main').css('opacity', '0.05');
+  $('.kategoria-estiloa').css('opacity', '0.05');
+  $('footer').css('opacity', '0.05');
+  $('.dropdown').css('opacity', '0.05');
+  $('.bideoakKutxa').css('opacity', '0.05');
+  $('header').css('opacity', '0.05');
   var bideoKutxa = document.getElementById("bideoKutxa");
   var irudiaKutxa = document.getElementById("irudiaKutxa");
   var infoKutxa= document.getElementById("infoKutxa");
@@ -31,6 +37,12 @@ function popup_video(titulua, azalpena, irudiURL, bideoURL, bideoId, emanda) {
 
 function popup_itxi() {
   $('body').css('overflow', 'visible');
+  $('main').css('opacity', '1');
+  $('.kategoria-estiloa').css('opacity', '1');
+  $('footer').css('opacity', '1');
+  $('.dropdown').css('opacity', '1');
+  $('.bideoakKutxa').css('opacity', '1');
+  $('header').css('opacity', '1');
   var bideoKutxa = document.getElementById("bideoKutxa");
   bideoKutxa.style.display = "none";
 }
@@ -44,7 +56,6 @@ function bideoa_itxi() {
 
 var player, iframe;
 var $qs = document.querySelector.bind(document);
-
 
 // init player
 function onYouTubeIframeAPIReady() {
@@ -74,9 +85,22 @@ function playFullscreen (){
   var bideoTxikia = document.getElementById("playerWrapper");
   bideoTxikia.style.display="block";
   player.loadVideoById(currentVideo);
-  console.log(currentVideo);
   player.playVideo();//won't work on mobile
+  var requestFullScreen = iframe.requestFullScreen || iframe.mozRequestFullScreen || iframe.webkitRequestFullScreen;
+  if (requestFullScreen) {
+    requestFullScreen.bind(iframe)();
+  }
+}
 
+/*------------Pelikula Nagusia----------*/
+function playFullscreenNagusia(){
+  popup_itxi();
+  currentVideo = "5TdgJW8Mzz4";
+  console.log(currentVideo);
+  var bideoTxikia = document.getElementById("playerWrapper");
+  bideoTxikia.style.display="block";
+  player.loadVideoById(currentVideo);
+  player.playVideo();//won't work on mobile
   var requestFullScreen = iframe.requestFullScreen || iframe.mozRequestFullScreen || iframe.webkitRequestFullScreen;
   if (requestFullScreen) {
     requestFullScreen.bind(iframe)();
