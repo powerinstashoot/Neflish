@@ -52,6 +52,11 @@ input[type="file"] {
     text-align: center;
 }
 
+#output{
+    margin: 0 auto;
+    height: 150px;
+}
+
 .mt2 {
     margin-top: 2rem;
 }

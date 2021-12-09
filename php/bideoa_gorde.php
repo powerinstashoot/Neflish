@@ -48,7 +48,7 @@
 						</label>
 						<input type="file" id="img" name="img" accept="image/*" onchange="loadFile(event)">
 						<div class="imageContainer">
-							<img id="output" height="150" />
+							<img id="output" style="display:none;" />
 						</div>
 
 						<input type="button" id="hustu_img" value="Irudia ezabatu" onclick="ezabatuArgazkia()">
