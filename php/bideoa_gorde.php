@@ -78,11 +78,13 @@
 				if($errorea == ''){
 					$tempimage = $_FILES['img']['tmp_name'];
 					if(!gorde_bideoa($titulua, $linka, $azalpena, $kategoria, $tempimage, $irudia)){	// Gorde bideoa datu basean (XML fitxategia).
-						$errorea = '<li>Ezin izan da bideoa datu basean gorde.</li>';
+						$errorea = 'Ezin izan da bideoa datu basean gorde.\n';
 					}
 				}
 				if($errorea != '') {
-					echo'<script type="text/javascript">alert(\'<ul>\'.$errorea.\'</ul>\');</script>';
+					?>
+					<script type="text/javascript">alert('<?php $errorea; ?>');</script>
+					<?php
 				} else {
 					echo'<script type="text/javascript">alert("Bideoa gorde da");</script>';
 				}

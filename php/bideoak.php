@@ -14,15 +14,15 @@ $BL_FILE='../data/neflish_bideoak.xml';		// Bideoak gordeko diren fitxategia.
 function balidatu_bideoa($titulua, $linka, $azalpena, $kategoria, $irudia){
 	$errorea = '';
 	if ($titulua=='') {
-		$errorea = $errorea.'<li>Titulua adieraztea beharrezkoa da.</li>';
+		$errorea = $errorea.'Titulua adieraztea beharrezkoa da.\n';
 	} 
 	if ($linka=='') {
-		$errorea = $errorea.'<li>Linka adieraztea beharrezkoa da.</li>';
+		$errorea = $errorea.'Linka adieraztea beharrezkoa da.\n';
 		//Ziurtatu linkak formatu egokia duela.
 		//$errorea = balidatu_linka($linka);
 	}
 	if ($kategoria=='') {
-		$errorea = $errorea.'<li>Kategoria adieraztea beharrezkoa da.</li>';
+		$errorea = $errorea.'Kategoria adieraztea beharrezkoa da.\n';
 	}
 	if(!empty($irudia) && $irudia!=null){
 		// Argazkiaren luzapena lortu
@@ -30,10 +30,10 @@ function balidatu_bideoa($titulua, $linka, $azalpena, $kategoria, $irudia){
 		// Allow certain file formats
 		$allowTypes = array('png','jpg','jpeg','gif');
 		if(!in_array($fileType, $allowTypes)){
-			$errorea = $errorea.'<li>Irudiaren formatua ez da egokia.</li>';
+			$errorea = $errorea.'Irudiaren formatua ez da egokia.\n';
 		}
 	}else{
-		$errorea = $errorea.'<li>Irudia adieraztea beharrezkoa da.</li>';
+		$errorea = $errorea.'Irudia adieraztea beharrezkoa da.\n';
 	}
 	return $errorea;
 }

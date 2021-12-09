@@ -55,12 +55,17 @@ function balidatu(f) {
   var linka = document.getElementById("linka");
   var azalpena = document.getElementById("azalpena");
   var kategoria = document.getElementById("kategoria");
+  var irudia = document.getElementById("img");
   if (titulua.value=="") {
     alert("Titulua adieraztea derrigorrezkoa da.");
     return false;
   }
   if (linka.value=="") {
     alert("Linka adieraztea derrigorrezkoa da.");
+    return false;
+  }
+  if (irudia.value=="") {
+    alert("Irudia txertatzea derrigorrezkoa da.");
     return false;
   }
   return true;
