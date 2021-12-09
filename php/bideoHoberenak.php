@@ -67,31 +67,36 @@
 						<div class="bideoakKutxa">
 						<?php
 						$kont=1;
-                        foreach($bl->bideoa as $bideoa){
-                        	$emanda="false";
-                            if(in_array($bideoa['id'], $bideoGustokoenak)){
-								$likeKop = count($bideoa->likes->erabiltzailea);
-								foreach($bideoa->likes->erabiltzailea as $erab){
-									if ($erab==$_SESSION['email']) {
-										$emanda="true";
-										break;
-									}else{
-										$emanda="false";
-									}
-								}
-                                ?>
-                                <div class="topBideoa" id="<?php echo($bideoa['id']);?>">
-									<div class="topIzenburua">
-										<h3>TOP<?php echo $kont; ?></h3>
-										<p><?php echo $likeKop; ?> <i class="fa fa-heart-o" aria-hidden="true" id="bihotza"></i></p>
-									</div>
-									<img src="<?php echo $bideoa->irudia; ?>" alt="<?php echo $bideoa->titulua; ?>" onclick="popup_video('<?php echo $bideoa->titulua; ?>','<?php echo $bideoa->azalpena; ?>','<?php echo $bideoa->irudia; ?>','<?php echo $bideoa->linka; ?>', '<?php echo $bideoa['id']; ?>','<?php echo $emanda;?>')"/>
-								</div>
-                                <?php
-								$kont++;
-                            }
+						for ($j=1; $j<4; $j++) {
 							
-                        }
+							foreach($bl->bideoa as $bideoa){
+								$emanda="false";
+								if($bideoGustokoenak[$j]==$bideoa['id']){
+									$likeKop = count($bideoa->likes->erabiltzailea);
+									foreach($bideoa->likes->erabiltzailea as $erab){
+										if ($erab==$_SESSION['email']) {
+											$emanda="true";
+											break;
+										}else{
+											$emanda="false";
+										}
+									}
+									?>
+									<div class="topBideoa" id="<?php echo($bideoa['id']);?>">
+										<div class="topIzenburua">
+											<h3>TOP<?php echo $kont; ?></h3>
+											<p><?php echo $likeKop; ?> <i class="fa fa-heart-o" aria-hidden="true" id="bihotza"></i></p>
+										</div>
+										<img src="<?php echo $bideoa->irudia; ?>" alt="<?php echo $bideoa->titulua; ?>" onclick="popup_video('<?php echo $bideoa->titulua; ?>','<?php echo $bideoa->azalpena; ?>','<?php echo $bideoa->irudia; ?>','<?php echo $bideoa->linka; ?>', '<?php echo $bideoa['id']; ?>','<?php echo $emanda;?>')"/>
+									</div>
+									<?php
+									$kont++;
+									break;
+								}
+								
+							}
+						}
+                        
 						?>
 						</div>
 						<?php
