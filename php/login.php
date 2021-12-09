@@ -10,8 +10,10 @@
 			}else{
 				$errenkadak = $emaitza->num_rows;
 				$konexioa->close();
+				// Erabiltzailea datubasean badago
 				if($errenkadak==1){
 					$row=$emaitza->fetch_object();
+					// Datubaseko pasahitza eta sartutako pasahitza berdinak badira
 					if(hash_equals($row->pasahitza, crypt($pasahitza, $row->pasahitza))){
 						session_start();
 						$_SESSION['email'] = $erabemail;

@@ -1,3 +1,4 @@
+<!-- Menua pantaila guztietan agertzeko -->
 <header>
   <div class="container">
     <a href="neflish.php" style="text-decoration:none"><h2 class="logo">Neflish</h2></a>
@@ -6,6 +7,7 @@
         <a href="bideoGustokoak.php" class="">Zure gustoko pelikulak</a>
         <a href="bideoHoberenak.php" class="">Pelikula hoberenak</a>
         <?php
+          // Erabiltzailea admin bada, pelikulak gehitu aukera agertu behar da
           if($_SESSION['email'] == 'admin@gmail.com'){
             echo '<a href="bideoa_gorde.php" class="">Pelikulak gehitu</a>';
           }

@@ -18,6 +18,7 @@
         Login
         <span class="underline"></span>
       </button>
+			<!-- LOGIN formularioa -->
       <form class="form form-login" method="post" action="loginSignup.php">
         <fieldset>
           <legend>Mesedez, erabiltzailea eta pasahitza sar ezazu saioa hasteko.</legend>
@@ -34,12 +35,14 @@
         <button type="submit" class="btn-login">Logeatu</button>
       </form>
     </div>
+		<!-- LOGIN formularioaren egiaztapena -->
     <?php include 'login.php'; ?>
     <div class="form-wrapper" id="divReg">
       <button type="button" class="switcher switcher-signup" onclick="aldatuActiveReg()">
         Sign Up
         <span class="underline"></span>
       </button>
+			<!-- SIGNUP formularioa -->
       <form class="form form-signup" method="post" action="loginSignup.php">
         <fieldset>
           <legend>Mesedez, izen abizenak, erabiltzailea, emaila eta pasahitza bitan erregistratzeko.</legend>
@@ -66,6 +69,7 @@
         <button type="submit" id="btn-signup" class="btn-signup">Erregistratu</button>
       </form>
     </div>
+		<!-- SIGNUP formularioaren egiaztapena -->
     <?php include 'signup.php'; ?>
   </div>
 </section>

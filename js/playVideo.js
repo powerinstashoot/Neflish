@@ -60,7 +60,9 @@ function popup_itxi(emanda, bideoId) {
   }
 
 }
-
+/*
+Pelikula pantaila txikian dagoenean
+*/
 function bideoa_itxi() {
   var bideoTxikia = document.getElementById("playerWrapper");
   bideoTxikia.style.display="none";
@@ -72,6 +74,9 @@ var player, iframe;
 var $qs = document.querySelector.bind(document);
 
 // init player
+/*
+Pelikula pantaila txikian agertzeko funtzioa
+*/
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
     height: '200',
@@ -94,7 +99,8 @@ function setupListener (){
     $qs('#playFull').addEventListener('click', playFullscreen);
 }
 /*
-Pelikula pantaila txikian dagoenean,
+Pelikula pantaila txikian dagoenean, pantaila osoa jarriko da funtzio
+hau exekutatzean
 
 */
 function playFullscreen (){

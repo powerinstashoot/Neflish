@@ -14,10 +14,10 @@
 
 
 /**
- * 
- * @param {*} xml 
- * @param {*} kategoria 
- * @param {*} emaila 
+ *
+ * @param {*} xml
+ * @param {*} kategoria
+ * @param {*} emaila
  */
  /*
 function bideoakIkusi(xml,kategoria,emaila) {
@@ -87,8 +87,8 @@ function bideoakIkusi(xml,kategoria,emaila) {
 
       divBideoa.appendChild(irudiaEl);
       div6.appendChild(divBideoa);
- 
-      
+
+
     }
   }
   let eskuinbotoi =document.createElement("button");
@@ -99,7 +99,7 @@ function bideoakIkusi(xml,kategoria,emaila) {
   gezObjektua2.className= "fas fa-angle-right";
 
   eskuinbotoi.appendChild(gezObjektua2);
-  
+
 
   div5.appendChild(div6);
   div4.appendChild(div5);
@@ -121,6 +121,10 @@ function bideoakIkusi(xml,kategoria,emaila) {
 }
 
 */
+/*
+kategoria bat aukeratzeko funtzioa. Zabalgarrian kategoria bat klikatu,
+eta kategoria horren pelikulak ikusiko dira
+*/
 function kategoria(Kategoria){
   var katArray= document.getElementsByClassName('kategoria-estiloa');
   for (var i=0; i< katArray.length ; i++) {
@@ -131,5 +135,5 @@ function kategoria(Kategoria){
       katArray[i].style.display="none";
     }
   }
-  
+
 }

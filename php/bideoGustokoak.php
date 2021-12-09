@@ -41,6 +41,7 @@
 				<p class="azalpena container"></p>
 			</div>
 		</div>
+		<!-- Pelikula gustokoenen zerrenda -->
 		<div class="content" id="bideoak">
 			<div class="container">
 				<h2 class="sekzioTit">Zure gustoko pelikulak</h2>
@@ -70,7 +71,7 @@
 							<?php
 							}
 							?>
-		                    
+
 		            <?php
                         }
 						?>

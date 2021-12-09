@@ -14,7 +14,7 @@
 		<script src="../js/playVideo.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" src="../js/menu.js"></script>
 		<script src="https://www.youtube.com/iframe_api"></script>
-		
+
 		<link rel="icon" href="../img/NeflishLogo3.png">
 		<title>Neflish</title>
 	</head>
@@ -41,6 +41,7 @@
 				<p class="azalpena container"></p>
 			</div>
 		</div>
+		<!-- Pelikula hoberenen zerrenda  -->
 		<div class="content" id="bideoakTop">
 			<div class="container">
 				<h2 class="sekzioTit">Pelikula hoberenak</h2>
@@ -52,7 +53,7 @@
 						echo('<p>Errore bat gertatu da bideoak kargatzean</p>');
 					} else {
                         $bideoGustokoenak = array(null);
-                        
+
                         for($j=0; $j<3; $j++){
                             $handiena=-1;
                             for($i=0; $i<count($bl->bideoa); $i++) {
@@ -68,7 +69,7 @@
 						<?php
 						$kont=1;
 						for ($j=1; $j<4; $j++) {
-							
+
 							foreach($bl->bideoa as $bideoa){
 								$emanda="false";
 								if($bideoGustokoenak[$j]==$bideoa['id']){
@@ -93,10 +94,10 @@
 									$kont++;
 									break;
 								}
-								
+
 							}
 						}
-                        
+
 						?>
 						</div>
 						<?php

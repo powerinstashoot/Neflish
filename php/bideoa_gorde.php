@@ -17,6 +17,7 @@
 		<?php include 'menu.php' ?>
 		<div class="content">
 			<div class="container">
+				<!-- Pelikula gordetzeko formularioa -->
 				<form class="bideoaForm" action="../php/bideoa_gorde.php" method="POST" enctype="multipart/form-data">
 					<h2 class="izenburuaForm">Pelikula gehitu</h2>
 					<div class="inputgroup">
@@ -49,7 +50,7 @@
 						<div class="imageContainer">
 							<img id="output" height="150" />
 						</div>
-						
+
 						<input type="button" id="hustu_img" value="Irudia ezabatu" onclick="ezabatuArgazkia()">
 					</div>
 					<div class="inputgroup mt2">
@@ -71,10 +72,10 @@
 				}else{
 					$irudia=null;
 				}
-				
+
 				// Formularioa balidatu
 				$errorea = balidatu_bideoa($titulua, $linka, $azalpena, $kategoria, $irudia);
-				
+
 				if($errorea == ''){
 					$tempimage = $_FILES['img']['tmp_name'];
 					if(!gorde_bideoa($titulua, $linka, $azalpena, $kategoria, $tempimage, $irudia)){	// Gorde bideoa datu basean (XML fitxategia).
@@ -88,8 +89,8 @@
 				} else {
 					echo'<script type="text/javascript">alert("Bideoa gorde da");</script>';
 				}
-				 
-				
+
+
 			}
 		?>
 		</div>

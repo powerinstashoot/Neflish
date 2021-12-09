@@ -22,15 +22,16 @@
 			<div id="player"></div>
 		</div>
 		<main>
+			<!-- Argazki handian agertuko den pelikula -->
 			<div class="pelikula-nagusia">
 				<div class="container" id="nagusia">
 						<h3 class="titulua">Ted2</h3>
 						<p class="azalpena">
-							Seth MacFarlane komikoak idatzi eta zuzendutako komedia arrakastatsuaren jarraipena da. 
-							Ted eta Tami-Lynn ezkondu berriak, haur bat izatea erabakitzen dute. Johnek bere burua 
-							eskaintzen du esperma emateko, bere lagunik onenak haurra izateko ametsa bete dezan, baina, 
-							ustekabean, gutun legal bat jasotzen dute, esanez estatuak ez diola uzten aita izaten, ez baitago 
-							frogatuta pertsona bat denik. Denek batera indarrak batu beharko dituzte beren eskubideen alde 
+							Seth MacFarlane komikoak idatzi eta zuzendutako komedia arrakastatsuaren jarraipena da.
+							Ted eta Tami-Lynn ezkondu berriak, haur bat izatea erabakitzen dute. Johnek bere burua
+							eskaintzen du esperma emateko, bere lagunik onenak haurra izateko ametsa bete dezan, baina,
+							ustekabean, gutun legal bat jasotzen dute, esanez estatuak ez diola uzten aita izaten, ez baitago
+							frogatuta pertsona bat denik. Denek batera indarrak batu beharko dituzte beren eskubideen alde
 							justizia-auzitegi batean borrokatzeko.
 						</p>
 						<button role="button" class="botoia" onclick="playFullscreenNagusia()"><i class="fas fa-play"></i>Play</button>
@@ -65,13 +66,14 @@
 							}
 						}
 						?>
-						
+
 					</div>
 				</div>
 			</div>
 		</main>
 
 		<div class="container">
+			<!--Kategoria aukeratzeko zerrenda -->
 			<div class="dropdown">
 	        <a href="#" onclick="onClickMenu()" class="dropbtn">Kategoriak &nbsp <i class="fa fa-sort-down" id="gezia"></i></a>
 		        <div id="myDropdown" class="dropdown-content">
@@ -81,8 +83,8 @@
 		            <a onclick="kategoria('Haurrentzako')">Haurrentzako</a>
 		        </div>
 	    	</div>
-		
-		
+
+			<!-- Ezkerreko pantaila txikia ikusteko pelikula -->
 			<div class="kutxa" id="bideoKutxa">
 				<div class="irudiaKutxa" id="irudiaKutxa">
 					<span>
@@ -99,6 +101,8 @@
 				</div>
 			</div>
 
+			<!-- Karrusel moduan agertzen diren pelikulen zerrenda
+		  		Kategoria bat aukeratuta, kategoria horren pelikulak agertu		-->
 			<div class="content" id="bideoak">
 				<?php
 					$BL_FILE='../data/neflish_bideoak.xml';
@@ -138,7 +142,7 @@
 											<div class="divBideoa pelikula" id="<?php echo($bideoa['id']);?>">
 												<img src="<?php echo $bideoa->irudia; ?>" alt="<?php echo $bideoa->titulua; ?>" onclick="popup_video('<?php echo $bideoa->titulua; ?>','<?php echo $bideoa->azalpena; ?>','<?php echo $bideoa->irudia; ?>','<?php echo $bideoa->linka; ?>', '<?php echo $bideoa['id']; ?>','<?php echo $emanda;?>')">
 											</div>
-							
+
 								<?php
 								}
 							}
@@ -154,11 +158,11 @@
 				?>
 			</div>
 		</div>
-		<?php include 'footer.php' ?>		
+		<?php include 'footer.php' ?>
 		<script type="text/javascript" src="../js/karrusel.js"></script>
 		<script type="text/javascript" src="../js/playVideo.js"></script>
 		<script src="../js/kategoriakIkusi.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/likeEman.js" type="text/javascript" charset="utf-8"></script>
-		
+
 	</body>
 </html>
