@@ -28,6 +28,19 @@ function likeEman(sender){
             if(url.indexOf("bideoHoberenak")>=0){
                 var aldatu2=$('.topBideoa#'+bideoId).children('img');
                 aldatu2.attr("onclick","popup_video('"+data.titulua[0]+"','"+data.azalpena[0]+"','"+data.irudia[0]+"','"+data.linka[0]+"','"+bideoId+"','"+data.egoera+"')");
+                var likeTop=$('.topBideoa#'+bideoId).children('.topIzenburua').children('p');
+                var likeKop= parseInt(likeTop.text());
+                console.log(likeKop);
+                var bihotzTop= likeTop.children('i');
+                console.log(data.egoera);
+                if (data.egoera=="true") {
+                    likeKop++;
+                    likeTop.text(likeKop+" ");
+                }else{
+                    likeKop--;
+                    likeTop.text(likeKop+" ");
+                }
+                    likeTop.append("<i class='fa fa-heart-o' aria-hidden='true' id='bihotza'></i>"); 
             }
 
             if(data.egoera=="true"){

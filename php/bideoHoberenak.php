@@ -41,7 +41,7 @@
 				<p class="azalpena container"></p>
 			</div>
 		</div>
-		<div class="content" id="bideoak">
+		<div class="content" id="bideoakTop">
 			<div class="container">
 				<h2 class="sekzioTit">Pelikula hoberenak</h2>
 				<?php
@@ -102,6 +102,7 @@
 						<?php
                     }
 		            ?>
+		            <button class="errekargaBtn" onclick="location.reload()">Pelikula hoberenak errekargatu</button>
 				</div>
 		    </div>
 			<?php include 'footer.php' ?>

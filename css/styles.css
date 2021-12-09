@@ -463,3 +463,24 @@ footer .container {
   padding-top: 2px;
 }
 
+/* ---- ----- ----- Errekargatu botoia ----- ----- ----- */
+
+.errekargaBtn {
+  text-align: center;
+  width: 30%;
+  border: 0px;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--gorria);
+  font-weight: 700;
+  color: white;
+  margin-top: 5%;
+}
+
+#bideoakTop{
+  text-align: center;
+}
+
+.errekargaBtn:hover {
+  background-color: #6d050b;
+}
