@@ -5,14 +5,22 @@ var errenkada = document.querySelectorAll('.kategoria-estiloa');
 //var ezkerGezia = document.getElementById('ezker-gezia');
 //var eskuinGezia = document.getElementById('eskuin-gezia');
 
+/*
+
+Karruselean ikusiko diren pelikulak eta botoiak maneiatzeko funtzioa.
+Ezkerreko gezia sakatuta, karruseleko elementuak ezkerrera mugituko dira
+eta elementu bat gehiago gehituko da eskubi aldean.
+Eskubiko gezia sakatuta berdin, baina alderantziz.
+
+*/
 function karrusel (errenk) {
 	var ezkerGezia = errenk.querySelector('.ezker-gezia');
 	var eskuinGezia = errenk.querySelector('.eskuin-gezia');
 
 	var pelikulak = errenk.querySelectorAll('.pelikula');
-
+	// ? ----- ----- Event Listener eskubiko geziarentzat. ----- -----
 	eskuinGezia.addEventListener('click', () => {
-		
+
 		var karrusel = errenk.querySelector('.container-karrusel');
 		karrusel.scrollLeft += karrusel.offsetWidth;
 		var indikagailuAktibatuta = errenk.querySelector('.indikagailuak .aktibatuta');
@@ -24,7 +32,7 @@ function karrusel (errenk) {
 
 	// ? ----- ----- Event Listener ezkerreko geziarentzat. ----- -----
 	ezkerGezia.addEventListener('click', () => {
-		
+
 		var karrusel = errenk.querySelector('.container-karrusel');
 		karrusel.scrollLeft -= karrusel.offsetWidth;
 		var indikagailuAktibatuta = errenk.querySelector('.indikagailuak .aktibatuta');
@@ -44,7 +52,7 @@ function karrusel (errenk) {
 		}
 
 		errenk.querySelector('.indikagailuak').appendChild(indikagailua);
-		
+
 		indikagailua.addEventListener('click', (e) => {
 			var karrusel = errenk.querySelector('.container-karrusel');
 			karrusel.scrollLeft = i * errenk.offsetWidth;
@@ -53,16 +61,12 @@ function karrusel (errenk) {
 		});
 	}
 }
-
+/*
+Kategorien zerrenda korritu
+*/
 for (var i = 0, len = errenkada.length; i < len; i++) {
-    
+
 	var errenk = errenkada[i];
 	karrusel(errenk);
 
 }
-
-
-
-
-
-

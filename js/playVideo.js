@@ -1,5 +1,8 @@
 var currentVideo;
 
+/*
+Pelikula bat klikatzean popup-a azaltzeko funtzioa
+*/
 function popup_video(titulua, azalpena, irudiURL, bideoURL, bideoId, emanda) {
   $('body').css('overflow', 'hidden');
   $('main').css('opacity', '0.05');
@@ -32,9 +35,11 @@ function popup_video(titulua, azalpena, irudiURL, bideoURL, bideoId, emanda) {
     bihotza.classList.add('fa' , 'fa-heart');
     bihotza.style.color="red";
   }
-     
-}
 
+}
+/*
+Popup-a ixteko funtzioa
+*/
 function popup_itxi(emanda, bideoId) {
   $('body').css('overflow', 'visible');
   $('main').css('opacity', '1');
@@ -53,7 +58,7 @@ function popup_itxi(emanda, bideoId) {
       $('.topBideoa#'+bideoId).css("display", "block");
     }
   }
-  
+
 }
 
 function bideoa_itxi() {
@@ -82,13 +87,16 @@ function onYouTubeIframeAPIReady() {
 function onPlayerReady(event) {
   var player = event.target;
   iframe = $qs('#player');
-  setupListener(); 
+  setupListener();
 }
 
 function setupListener (){
     $qs('#playFull').addEventListener('click', playFullscreen);
 }
+/*
+Pelikula pantaila txikian dagoenean,
 
+*/
 function playFullscreen (){
   popup_itxi();
   var bideoTxikia = document.getElementById("playerWrapper");

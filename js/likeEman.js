@@ -1,3 +1,8 @@
+/*
+Bihotzaren botoia sakatzean exekutatzen den funtzioa.
+Ajax-ekin pelikula horren informazioa hartu eta likeEman.php
+fitxategiari JSON bat bidali "like" hori XML-an gordetzeko
+*/
 function likeEman(sender){
     var bideoId = $(sender).siblings('h3').attr('id');
     var klasea = $(sender).children().hasClass('fa-heart'); //Emanda dago.
@@ -14,7 +19,7 @@ function likeEman(sender){
                 var aldatu=$('.pelikula#'+bideoId).children('img');
                 aldatu.attr("onclick","popup_video('"+data.titulua[0]+"','"+data.azalpena[0]+"','"+data.irudia[0]+"','"+data.linka[0]+"','"+bideoId+"','"+data.egoera+"')");
             }
-            
+
             if(url.indexOf("bideoGustokoak")>=0){
                 var gurutzea=$('.fa-close');
                 gurutzea.attr("onclick","popup_itxi('"+data.egoera+"','"+bideoId+"')");
@@ -65,4 +70,3 @@ function likeEmanNagusia(sender){
             }
         });
 }
-
