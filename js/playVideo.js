@@ -33,9 +33,9 @@ function popup_video(titulua, azalpena, irudiURL, bideoURL, bideoId, emanda) {
     bihotza.style.color="red";
   }
      
-  }
+}
 
-function popup_itxi() {
+function popup_itxi(emanda, bideoId) {
   $('body').css('overflow', 'visible');
   $('main').css('opacity', '1');
   $('.kategoria-estiloa').css('opacity', '1');
@@ -45,6 +45,15 @@ function popup_itxi() {
   $('header').css('opacity', '1');
   var bideoKutxa = document.getElementById("bideoKutxa");
   bideoKutxa.style.display = "none";
+  var url = $(location).attr('href');
+  if(url.indexOf("bideoGustokoak")>=0){
+    if(emanda=="false"){
+      $('.topBideoa#'+bideoId).css("display", "none");
+    }else{
+      $('.topBideoa#'+bideoId).css("display", "block");
+    }
+  }
+  
 }
 
 function bideoa_itxi() {
@@ -96,7 +105,6 @@ function playFullscreen (){
 function playFullscreenNagusia(){
   popup_itxi();
   currentVideo = "5TdgJW8Mzz4";
-  console.log(currentVideo);
   var bideoTxikia = document.getElementById("playerWrapper");
   bideoTxikia.style.display="block";
   player.loadVideoById(currentVideo);

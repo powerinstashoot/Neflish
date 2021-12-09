@@ -68,6 +68,7 @@
 						<?php
 						$kont=1;
                         foreach($bl->bideoa as $bideoa){
+                        	$emanda="false";
                             if(in_array($bideoa['id'], $bideoGustokoenak)){
 								$likeKop = count($bideoa->likes->erabiltzailea);
 								foreach($bideoa->likes->erabiltzailea as $erab){

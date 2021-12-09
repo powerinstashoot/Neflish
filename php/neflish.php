@@ -86,7 +86,7 @@
 			<div class="kutxa" id="bideoKutxa">
 				<div class="irudiaKutxa" id="irudiaKutxa">
 					<span>
-						<i onclick=popup_itxi() class="fa fa-close" style="color:white"></i>
+						<i onclick="popup_itxi('#','#')" class="fa fa-close" style="color:white"></i>
 					</span>
 					<div class="container">
 						<h3 class="titulua"></h3>

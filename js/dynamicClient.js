@@ -3,7 +3,6 @@
 toggle between hiding and showing the dropdown content */
 function onClickMenu() {
   event.preventDefault();
-  console.log("menua aldatu");
   var menua=document.getElementById("myDropdown");
   menua.classList.toggle("show");
   if(menua.classList.contains("show")){
@@ -18,7 +17,6 @@ function onClickMenu() {
 
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
-  console.log(event.target.tagName.toLowerCase());
   if (!event.target.matches('.dropbtn') && !event.target.matches('#gezia')) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
